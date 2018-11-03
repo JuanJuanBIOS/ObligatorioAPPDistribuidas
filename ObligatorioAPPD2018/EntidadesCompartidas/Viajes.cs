@@ -5,6 +5,7 @@ using System.Text;
 
 namespace EntidadesCompartidas
 {
+    [Serializable]
     public abstract class Viajes
     {
         //Atributos
@@ -145,6 +146,11 @@ namespace EntidadesCompartidas
             Fecha_arribo = pFecha_arribo;
             Asientos = pAsientos;
             Empleado = pEmpleado;
+        }
+
+        //Constructor por defecto
+        public Viajes()
+        {
         }
     }
 }

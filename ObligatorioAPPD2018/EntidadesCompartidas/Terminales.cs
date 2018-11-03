@@ -5,6 +5,7 @@ using System.Text;
 
 namespace EntidadesCompartidas
 {
+    [Serializable]
     public class Terminales
     {
         //Atributos
@@ -96,6 +97,11 @@ namespace EntidadesCompartidas
             Ciudad = pCiudad;
             Pais = pPais;
             ListaFacilidades = pFacilidades;
+        }
+
+        //Constructor por defecto
+        public Terminales()
+        {
         }
     }
 }

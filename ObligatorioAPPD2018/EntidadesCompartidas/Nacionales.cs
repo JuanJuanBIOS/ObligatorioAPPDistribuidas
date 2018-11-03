@@ -5,6 +5,7 @@ using System.Text;
 
 namespace EntidadesCompartidas
 {
+    [Serializable]
     public class Nacionales : Viajes
     {
         //Atributos
@@ -31,6 +32,11 @@ namespace EntidadesCompartidas
             : base(pNumero, pCompania, pTerminal, pFecha_partida, pFecha_arribo, pAsientos, pEmpleado)
         {
             Paradas = pParadas;
+        }
+
+        //Constructor por defecto
+        public Nacionales()
+        {
         }
     }
 }

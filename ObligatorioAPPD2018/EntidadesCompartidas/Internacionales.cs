@@ -5,6 +5,7 @@ using System.Text;
 
 namespace EntidadesCompartidas
 {
+    [Serializable]
     public class Internacionales : Viajes
     {
         //Atributos
@@ -43,6 +44,11 @@ namespace EntidadesCompartidas
         {
             Servicio = pServicio;
             Documentacion = pDoocumentacion;
+        }
+
+        //Constructor por defecto
+        public Internacionales()
+        {
         }
     }
 }
