@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="Buscar_Compania">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pNombre" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Buscar_CompaniaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Buscar_CompaniaResult" type="tns:Companias" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Companias">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Alta_Compania">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unaCompania" type="tns:Companias" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Alta_CompaniaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Modificar_Compania">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unaCompania" type="tns:Companias" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Modificar_CompaniaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Eliminar_Compania">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unaCompania" type="tns:Companias" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Eliminar_CompaniaResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="Listar_Companias">
+        <s:complexType />
+      </s:element>
+      <s:element name="Listar_CompaniasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Listar_CompaniasResult" type="tns:ArrayOfCompanias" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfCompanias">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Companias" nillable="true" type="tns:Companias" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="Listar_Todos_Companias">
+        <s:complexType />
+      </s:element>
+      <s:element name="Listar_Todos_CompaniasResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Listar_Todos_CompaniasResult" type="tns:ArrayOfCompanias" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="Buscar_CompaniaSoapIn">
+    <wsdl:part name="parameters" element="tns:Buscar_Compania" />
+  </wsdl:message>
+  <wsdl:message name="Buscar_CompaniaSoapOut">
+    <wsdl:part name="parameters" element="tns:Buscar_CompaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Alta_CompaniaSoapIn">
+    <wsdl:part name="parameters" element="tns:Alta_Compania" />
+  </wsdl:message>
+  <wsdl:message name="Alta_CompaniaSoapOut">
+    <wsdl:part name="parameters" element="tns:Alta_CompaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Modificar_CompaniaSoapIn">
+    <wsdl:part name="parameters" element="tns:Modificar_Compania" />
+  </wsdl:message>
+  <wsdl:message name="Modificar_CompaniaSoapOut">
+    <wsdl:part name="parameters" element="tns:Modificar_CompaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Eliminar_CompaniaSoapIn">
+    <wsdl:part name="parameters" element="tns:Eliminar_Compania" />
+  </wsdl:message>
+  <wsdl:message name="Eliminar_CompaniaSoapOut">
+    <wsdl:part name="parameters" element="tns:Eliminar_CompaniaResponse" />
+  </wsdl:message>
+  <wsdl:message name="Listar_CompaniasSoapIn">
+    <wsdl:part name="parameters" element="tns:Listar_Companias" />
+  </wsdl:message>
+  <wsdl:message name="Listar_CompaniasSoapOut">
+    <wsdl:part name="parameters" element="tns:Listar_CompaniasResponse" />
+  </wsdl:message>
+  <wsdl:message name="Listar_Todos_CompaniasSoapIn">
+    <wsdl:part name="parameters" element="tns:Listar_Todos_Companias" />
+  </wsdl:message>
+  <wsdl:message name="Listar_Todos_CompaniasSoapOut">
+    <wsdl:part name="parameters" element="tns:Listar_Todos_CompaniasResponse" />
+  </wsdl:message>
+  <wsdl:portType name="MyWebServiceSoap">
+    <wsdl:operation name="Buscar_Compania">
+      <wsdl:input message="tns:Buscar_CompaniaSoapIn" />
+      <wsdl:output message="tns:Buscar_CompaniaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Alta_Compania">
+      <wsdl:input message="tns:Alta_CompaniaSoapIn" />
+      <wsdl:output message="tns:Alta_CompaniaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Modificar_Compania">
+      <wsdl:input message="tns:Modificar_CompaniaSoapIn" />
+      <wsdl:output message="tns:Modificar_CompaniaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_Compania">
+      <wsdl:input message="tns:Eliminar_CompaniaSoapIn" />
+      <wsdl:output message="tns:Eliminar_CompaniaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Listar_Companias">
+      <wsdl:input message="tns:Listar_CompaniasSoapIn" />
+      <wsdl:output message="tns:Listar_CompaniasSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Listar_Todos_Companias">
+      <wsdl:input message="tns:Listar_Todos_CompaniasSoapIn" />
+      <wsdl:output message="tns:Listar_Todos_CompaniasSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MyWebServiceSoap" type="tns:MyWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Buscar_Compania">
+      <soap:operation soapAction="http://tempuri.org/Buscar_Compania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Alta_Compania">
+      <soap:operation soapAction="http://tempuri.org/Alta_Compania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Modificar_Compania">
+      <soap:operation soapAction="http://tempuri.org/Modificar_Compania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_Compania">
+      <soap:operation soapAction="http://tempuri.org/Eliminar_Compania" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listar_Companias">
+      <soap:operation soapAction="http://tempuri.org/Listar_Companias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listar_Todos_Companias">
+      <soap:operation soapAction="http://tempuri.org/Listar_Todos_Companias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MyWebServiceSoap12" type="tns:MyWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Buscar_Compania">
+      <soap12:operation soapAction="http://tempuri.org/Buscar_Compania" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Alta_Compania">
+      <soap12:operation soapAction="http://tempuri.org/Alta_Compania" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Modificar_Compania">
+      <soap12:operation soapAction="http://tempuri.org/Modificar_Compania" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Eliminar_Compania">
+      <soap12:operation soapAction="http://tempuri.org/Eliminar_Compania" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listar_Companias">
+      <soap12:operation soapAction="http://tempuri.org/Listar_Companias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Listar_Todos_Companias">
+      <soap12:operation soapAction="http://tempuri.org/Listar_Todos_Companias" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MyWebService">
+    <wsdl:port name="MyWebServiceSoap" binding="tns:MyWebServiceSoap">
+      <soap:address location="http://localhost/MiServicioWeb/MyWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MyWebServiceSoap12" binding="tns:MyWebServiceSoap12">
+      <soap12:address location="http://localhost/MiServicioWeb/MyWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
