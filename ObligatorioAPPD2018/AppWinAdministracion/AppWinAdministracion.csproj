@@ -56,11 +56,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <Compile Include="Service References\ServicioWeb\Reference.cs">
-=======
-    <Compile Include="Service References\WS\Reference.cs">
->>>>>>> f7db972a28d0895dac2a1afb6e31606b9419fed3
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -88,17 +84,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-<<<<<<< HEAD
     <None Include="Service References\ServicioWeb\AppWinAdministracion.ServicioWeb.Companias.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ServicioWeb\MyWebService.wsdl" />
-=======
-    <None Include="Service References\WS\AppWinAdministracion.WS.Companias.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\WS\MyWebService.wsdl" />
->>>>>>> f7db972a28d0895dac2a1afb6e31606b9419fed3
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -108,7 +97,6 @@
     <Content Include="Imagenes\eliminar.png" />
     <Content Include="Imagenes\modificar.bmp" />
     <Content Include="Imagenes\nuevo.bmp" />
-<<<<<<< HEAD
     <None Include="Service References\ServicioWeb\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -119,18 +107,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ServicioWeb\" />
-=======
-    <None Include="Service References\WS\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\WS\configuration.svcinfo" />
-    <None Include="Service References\WS\configuration91.svcinfo" />
-    <None Include="Service References\WS\MyWebService.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WS\" />
->>>>>>> f7db972a28d0895dac2a1afb6e31606b9419fed3
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

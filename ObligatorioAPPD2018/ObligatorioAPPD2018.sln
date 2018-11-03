@@ -2,9 +2,6 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppWinAdministracion", "AppWinAdministracion\AppWinAdministracion.csproj", "{C88C3686-1E84-4203-BACD-37F17B46BC3D}"
-	ProjectSection(ProjectDependencies) = postProject
-		{6A46AA04-786F-4379-90F4-471D63D27E68} = {6A46AA04-786F-4379-90F4-471D63D27E68}
-	EndProjectSection
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebSiteConsultas", "..\WebSiteConsultas\", "{9D06D882-BDFF-485A-8128-884D1950655A}"
 	ProjectSection(WebsiteProperties) = preProject

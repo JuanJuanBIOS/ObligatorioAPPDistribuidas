@@ -7,17 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-using AppWinAdministracion.WS;
-
 
 namespace AppWinAdministracion
 {
     public partial class FrmABMCompanias : Form
     {
         //creo atributo que mantiene en memoria el objeto Compania con el cual se esta trabajando
-
-               
-        private Companias _objCompania = null;
+        
+        private Compania _objCompania = null;
 
         public FrmABMCompanias()
         {
@@ -52,7 +49,7 @@ namespace AppWinAdministracion
                 Convert.ToInt32(TBTel.Text);
                 ErrorProv.Clear();
             }
-            catch (Exception )
+            catch (Exception ex)
             {
                 ErrorProv.SetError(TBTel, "Solo se pueden ingresar numeros");
                 e.Cancel = true;
@@ -64,30 +61,30 @@ namespace AppWinAdministracion
             //busqueda del Compania
             try
             {
-                Companias _unaCompania = null;
-                _unaCompania = new AppWinAdministracion.WS.
+                Compania _unaCompania = null;
+                _unaCompania = new PresentacionWin.ServicioWeb.MiServicio().BuscarCliente(Convert.ToInt32(TxtNumero.Text));
                 this.LimpioControles();
 
                 if (_unaCompania == null)
                 {
                     BtnAlta.Enabled = true;
                 }
-            //    else
-            //    {
-            //        BtnModificar.Enabled = true;
-            //        BtnBaja.Enabled = true;
-            //        _objCompania = _unaCompania;
-            //        TBNombre.Text = _unaCompania.Nombre.ToString();
-            //        TBDireccion.Text = _unaCompania.Dirección;
-            //        TBTel.Text = _unaCompania.Telefono;
-            //    }
-            //}
-            //catch (System.Web.Services.Protocols.SoapException ex)
-            //{
-            //    if (ex.Detail.InnerText.Length > 40)
-            //        LblError.Text = ex.Detail.InnerText.Substring(0, 40);
-            //    else
-            //        LblError.Text = ex.Detail.InnerText;
+                else
+                {
+                    BtnModificar.Enabled = true;
+                    BtnBaja.Enabled = true;
+                    _objCompania = _unaCompania;
+                    TBNombre.Text = _unaCompania.Nombre.ToString();
+                    TBDireccion.Text = _unaCompania.Dirección;
+                    TBTel.Text = _unaCompania.Telefono;
+                }
+            }
+            catch (System.Web.Services.Protocols.SoapException ex)
+            {
+                if (ex.Detail.InnerText.Length > 40)
+                    LblError.Text = ex.Detail.InnerText.Substring(0, 40);
+                else
+                    LblError.Text = ex.Detail.InnerText;
             }
             catch (Exception ex)
             {
@@ -99,34 +96,34 @@ namespace AppWinAdministracion
         }
 
 
-        //private void BtnAlta_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        Compania _unaCompania = new Compania();
-        //        _unaCompania.Nombre=TBNombre.Text.Trim();
-        //        _unaCompania.Direccion = TBDireccion.Text.Trim();
-        //        _unaCompania.Telefono=TBTel.Text.Trim();
+        private void BtnAlta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Compania _unaCompania = new Compania();
+                _unaCompania.Nombre=TBNombre.Text.Trim();
+                _unaCompania.Direccion = TBDireccion.Text.Trim();
+                _unaCompania.Telefono=TBTel.Text.Trim();
                
-        //        new PresentacionWin.ServicioWeb.MiServicio().AltaCliente(_unCliente);
-        //        this.DesActivoBotones();
-        //        this.LimpioControles();
-        //        LblError.Text = "Alta con Exito";
-        //    }
-        //    catch (System.Web.Services.Protocols.SoapException ex)
-        //    {
-        //        if (ex.Detail.InnerText.Length > 40)
-        //            LblError.Text = ex.Detail.InnerText.Substring(0, 40);
-        //        else
-        //            LblError.Text = ex.Detail.InnerText;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        if (ex.Message.Length > 40)
-        //            LblError.Text = ex.Message.Substring(0, 40);
-        //        else
-        //            LblError.Text = ex.Message;
-        //    }
-        //}
+                new PresentacionWin.ServicioWeb.MiServicio().AltaCliente(_unCliente);
+                this.DesActivoBotones();
+                this.LimpioControles();
+                LblError.Text = "Alta con Exito";
+            }
+            catch (System.Web.Services.Protocols.SoapException ex)
+            {
+                if (ex.Detail.InnerText.Length > 40)
+                    LblError.Text = ex.Detail.InnerText.Substring(0, 40);
+                else
+                    LblError.Text = ex.Detail.InnerText;
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Length > 40)
+                    LblError.Text = ex.Message.Substring(0, 40);
+                else
+                    LblError.Text = ex.Message;
+            }
+        }
     }
 }
