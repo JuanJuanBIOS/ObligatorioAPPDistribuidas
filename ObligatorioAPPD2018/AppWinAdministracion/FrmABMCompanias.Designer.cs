@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.BtnAlta = new System.Windows.Forms.ToolStripButton();
             this.BtnBaja = new System.Windows.Forms.ToolStripButton();
@@ -41,8 +42,10 @@
             this.TBNombre = new System.Windows.Forms.TextBox();
             this.TBDireccion = new System.Windows.Forms.TextBox();
             this.TBTel = new System.Windows.Forms.TextBox();
+            this.ErrorProv = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProv)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -143,6 +146,7 @@
             this.TBNombre.Name = "TBNombre";
             this.TBNombre.Size = new System.Drawing.Size(172, 20);
             this.TBNombre.TabIndex = 3;
+            this.TBNombre.Validating += new System.ComponentModel.CancelEventHandler(this.TBNombre_Validating);
             // 
             // TBDireccion
             // 
@@ -157,6 +161,11 @@
             this.TBTel.Name = "TBTel";
             this.TBTel.Size = new System.Drawing.Size(172, 20);
             this.TBTel.TabIndex = 4;
+            this.TBTel.Validating += new System.ComponentModel.CancelEventHandler(this.TBTel_Validating);
+            // 
+            // ErrorProv
+            // 
+            this.ErrorProv.ContainerControl = this;
             // 
             // FrmABMCompanias
             // 
@@ -177,6 +186,7 @@
             this.toolStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorProv)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,5 +207,6 @@
         private System.Windows.Forms.TextBox TBNombre;
         private System.Windows.Forms.TextBox TBDireccion;
         private System.Windows.Forms.TextBox TBTel;
+        private System.Windows.Forms.ErrorProvider ErrorProv;
     }
 }
