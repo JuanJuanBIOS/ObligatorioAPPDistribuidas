@@ -5,6 +5,7 @@ using System.Text;
 
 namespace EntidadesCompartidas
 {
+    [Serializable]
     public class Empleados
     {
         //Atributos
@@ -96,6 +97,11 @@ namespace EntidadesCompartidas
             Cedula = pCedula;
             Pass = pPass;
             Nombre = pNombre;
+        }
+
+        //Constructor por defecto
+        public Empleados()
+        {
         }
     }
 }

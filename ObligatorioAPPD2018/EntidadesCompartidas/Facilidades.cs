@@ -5,6 +5,7 @@ using System.Text;
 
 namespace EntidadesCompartidas
 {
+    [Serializable]
     public class Facilidades
     {
         //Atributos
@@ -33,6 +34,11 @@ namespace EntidadesCompartidas
         public Facilidades(string pFacilidad)
         {
             Facilidad = pFacilidad;
+        }
+
+        //Constructor por defecto
+        public Facilidades()
+        {
         }
     }
 }
