@@ -369,7 +369,7 @@ namespace Persistencia
                 oReader.Close();
             }
 
-            catch (SqlException ex)
+            catch (SqlException)
             {
                 throw new Exception("La base de datos no se encuantra disponible. Contacte al administrador.");
             }

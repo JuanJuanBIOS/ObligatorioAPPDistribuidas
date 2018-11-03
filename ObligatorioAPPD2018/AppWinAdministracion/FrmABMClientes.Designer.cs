@@ -35,12 +35,6 @@
             this.BtnDeshacer = new System.Windows.Forms.ToolStripButton();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.LblError = new System.Windows.Forms.ToolStripStatusLabel();
-            this.LblNombre = new System.Windows.Forms.Label();
-            this.LblDireccion = new System.Windows.Forms.Label();
-            this.LblTel = new System.Windows.Forms.Label();
-            this.TBNombre = new System.Windows.Forms.TextBox();
-            this.TBDireccion = new System.Windows.Forms.TextBox();
-            this.TBTel = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +48,7 @@
             this.BtnDeshacer});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(487, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(884, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -66,7 +60,6 @@
             this.BtnAlta.Name = "BtnAlta";
             this.BtnAlta.Size = new System.Drawing.Size(23, 22);
             this.BtnAlta.Text = "toolStripButton1";
-            this.BtnAlta.Click += new System.EventHandler(this.BtnAlta_Click);
             // 
             // BtnBaja
             // 
@@ -99,9 +92,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.LblError});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 209);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 518);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(487, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(884, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -110,65 +103,11 @@
             this.LblError.Name = "LblError";
             this.LblError.Size = new System.Drawing.Size(0, 17);
             // 
-            // LblNombre
-            // 
-            this.LblNombre.AutoSize = true;
-            this.LblNombre.Location = new System.Drawing.Point(35, 62);
-            this.LblNombre.Name = "LblNombre";
-            this.LblNombre.Size = new System.Drawing.Size(47, 13);
-            this.LblNombre.TabIndex = 2;
-            this.LblNombre.Text = "Nombre:";
-            // 
-            // LblDireccion
-            // 
-            this.LblDireccion.AutoSize = true;
-            this.LblDireccion.Location = new System.Drawing.Point(35, 92);
-            this.LblDireccion.Name = "LblDireccion";
-            this.LblDireccion.Size = new System.Drawing.Size(55, 13);
-            this.LblDireccion.TabIndex = 2;
-            this.LblDireccion.Text = "Dirección:";
-            // 
-            // LblTel
-            // 
-            this.LblTel.AutoSize = true;
-            this.LblTel.Location = new System.Drawing.Point(35, 121);
-            this.LblTel.Name = "LblTel";
-            this.LblTel.Size = new System.Drawing.Size(52, 13);
-            this.LblTel.TabIndex = 2;
-            this.LblTel.Text = "Teléfono:";
-            // 
-            // TBNombre
-            // 
-            this.TBNombre.Location = new System.Drawing.Point(111, 59);
-            this.TBNombre.Name = "TBNombre";
-            this.TBNombre.Size = new System.Drawing.Size(172, 20);
-            this.TBNombre.TabIndex = 3;
-            // 
-            // TBDireccion
-            // 
-            this.TBDireccion.Location = new System.Drawing.Point(111, 89);
-            this.TBDireccion.Name = "TBDireccion";
-            this.TBDireccion.Size = new System.Drawing.Size(172, 20);
-            this.TBDireccion.TabIndex = 4;
-            // 
-            // TBTel
-            // 
-            this.TBTel.Location = new System.Drawing.Point(111, 118);
-            this.TBTel.Name = "TBTel";
-            this.TBTel.Size = new System.Drawing.Size(172, 20);
-            this.TBTel.TabIndex = 4;
-            // 
             // FrmABMCompanias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 231);
-            this.Controls.Add(this.TBTel);
-            this.Controls.Add(this.TBDireccion);
-            this.Controls.Add(this.TBNombre);
-            this.Controls.Add(this.LblTel);
-            this.Controls.Add(this.LblDireccion);
-            this.Controls.Add(this.LblNombre);
+            this.ClientSize = new System.Drawing.Size(884, 540);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.toolStrip1);
             this.Name = "FrmABMCompanias";
@@ -191,11 +130,5 @@
         private System.Windows.Forms.ToolStripButton BtnDeshacer;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel LblError;
-        private System.Windows.Forms.Label LblNombre;
-        private System.Windows.Forms.Label LblDireccion;
-        private System.Windows.Forms.Label LblTel;
-        private System.Windows.Forms.TextBox TBNombre;
-        private System.Windows.Forms.TextBox TBDireccion;
-        private System.Windows.Forms.TextBox TBTel;
     }
 }
