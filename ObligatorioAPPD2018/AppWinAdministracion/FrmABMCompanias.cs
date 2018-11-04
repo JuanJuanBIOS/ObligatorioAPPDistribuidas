@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-using AppWinAdministracion.WS;
+using AppWinAdministracion.WSTerminalRef;
 
 
 namespace AppWinAdministracion
@@ -47,7 +47,7 @@ namespace AppWinAdministracion
                 _unaCompania.Direccion = TBDireccion.Text.Trim();
                 _unaCompania.Telefono = TBTel.Text.Trim();
 
-                new WS.MyWebService().Alta_Compania(_unaCompania);
+                new WSTerminal().Alta_Compania(_unaCompania);
                 this.DesActivoBotones();
                 this.LimpioControles();
                 LblError.Text = "Alta con Exito";
@@ -89,7 +89,7 @@ namespace AppWinAdministracion
             try
             {
                 Companias _unaCompania = null;
-                _unaCompania = new WS.MyWebService().Buscar_Compania(TBNombre.Text);
+                _unaCompania = new WSTerminal().Buscar_Compania(TBNombre.Text);
                 this.LimpioControles();
 
                 if (_unaCompania == null)

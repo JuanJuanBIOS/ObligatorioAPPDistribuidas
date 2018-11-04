@@ -26,10 +26,10 @@ namespace AppWinAdministracion.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:55099/WebService/MyWebService.asmx")]
-        public string AppWinAdministracion_WS_MyWebService {
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:55099/WebService/WSTerminal.asmx")]
+        public string AppWinAdministracion_WSTerminalRef_WSTerminal {
             get {
-                return ((string)(this["AppWinAdministracion_WS_MyWebService"]));
+                return ((string)(this["AppWinAdministracion_WSTerminalRef_WSTerminal"]));
             }
         }
     }

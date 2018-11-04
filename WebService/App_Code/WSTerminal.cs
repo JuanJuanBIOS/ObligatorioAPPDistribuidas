@@ -10,15 +10,15 @@ using System.Xml;
 using System.Web.Services.Protocols;
 
 /// <summary>
-/// Summary description for MyWebService
+/// Summary description for WSTerminal
 /// </summary>
 [WebService(Namespace = "http://tempuri.org/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
 // To allow this Web Service to be called from script, using ASP.NET AJAX, uncomment the following line. 
 // [System.Web.Script.Services.ScriptService]
-public class MyWebService : System.Web.Services.WebService 
+public class WSTerminal : System.Web.Services.WebService 
 {
-    public MyWebService () 
+    public WSTerminal() 
     {
         //Uncomment the following line if using designed components 
         //InitializeComponent(); 

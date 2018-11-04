@@ -116,7 +116,7 @@
   <wsdl:message name="Listar_Todos_CompaniasSoapOut">
     <wsdl:part name="parameters" element="tns:Listar_Todos_CompaniasResponse" />
   </wsdl:message>
-  <wsdl:portType name="MyWebServiceSoap">
+  <wsdl:portType name="WSTerminalSoap">
     <wsdl:operation name="Buscar_Compania">
       <wsdl:input message="tns:Buscar_CompaniaSoapIn" />
       <wsdl:output message="tns:Buscar_CompaniaSoapOut" />
@@ -142,7 +142,7 @@
       <wsdl:output message="tns:Listar_Todos_CompaniasSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="MyWebServiceSoap" type="tns:MyWebServiceSoap">
+  <wsdl:binding name="WSTerminalSoap" type="tns:WSTerminalSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Buscar_Compania">
       <soap:operation soapAction="http://tempuri.org/Buscar_Compania" style="document" />
@@ -199,7 +199,7 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="MyWebServiceSoap12" type="tns:MyWebServiceSoap">
+  <wsdl:binding name="WSTerminalSoap12" type="tns:WSTerminalSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Buscar_Compania">
       <soap12:operation soapAction="http://tempuri.org/Buscar_Compania" style="document" />
@@ -256,12 +256,12 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:service name="MyWebService">
-    <wsdl:port name="MyWebServiceSoap" binding="tns:MyWebServiceSoap">
-      <soap:address location="http://localhost:55099/WebService/MyWebService.asmx" />
+  <wsdl:service name="WSTerminal">
+    <wsdl:port name="WSTerminalSoap" binding="tns:WSTerminalSoap">
+      <soap:address location="http://localhost:55099/WebService/WSTerminal.asmx" />
     </wsdl:port>
-    <wsdl:port name="MyWebServiceSoap12" binding="tns:MyWebServiceSoap12">
-      <soap12:address location="http://localhost:55099/WebService/MyWebService.asmx" />
+    <wsdl:port name="WSTerminalSoap12" binding="tns:WSTerminalSoap12">
+      <soap12:address location="http://localhost:55099/WebService/WSTerminal.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

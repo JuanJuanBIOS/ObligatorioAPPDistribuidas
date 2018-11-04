@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace AppWinAdministracion.WS {
+namespace AppWinAdministracion.WSTerminalRef {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -26,8 +26,8 @@ namespace AppWinAdministracion.WS {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.3056.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="MyWebServiceSoap", Namespace="http://tempuri.org/")]
-    public partial class MyWebService : System.Web.Services.Protocols.SoapHttpClientProtocol {
+    [System.Web.Services.WebServiceBindingAttribute(Name="WSTerminalSoap", Namespace="http://tempuri.org/")]
+    public partial class WSTerminal : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback Buscar_CompaniaOperationCompleted;
         
@@ -44,8 +44,8 @@ namespace AppWinAdministracion.WS {
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
-        public MyWebService() {
-            this.Url = global::AppWinAdministracion.Properties.Settings.Default.AppWinAdministracion_WS_MyWebService;
+        public WSTerminal() {
+            this.Url = global::AppWinAdministracion.Properties.Settings.Default.AppWinAdministracion_WSTerminalRef_WSTerminal;
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
