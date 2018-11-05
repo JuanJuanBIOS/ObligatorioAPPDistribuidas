@@ -60,7 +60,7 @@ namespace Persistencia
 
             catch (SqlException)
             {
-                throw new Exception("La base de datos no se encuantra disponible. Contacte al administrador.");
+                throw new Exception("La base de datos no se encuentra disponible. Contacte al administrador.");
             }
 
             catch (Exception ex)
@@ -107,7 +107,7 @@ namespace Persistencia
 
             catch (SqlException)
             {
-                throw new Exception("La base de datos no se encuantra disponible. Contacte al administrador.");
+                throw new Exception("La base de datos no se encuentra disponible. Contacte al administrador.");
             }
 
             catch (Exception ex)
@@ -158,7 +158,7 @@ namespace Persistencia
 
             catch (SqlException)
             {
-                throw new Exception("La base de datos no se encuantra disponible. Contacte al administrador.");
+                throw new Exception("La base de datos no se encuentra disponible. Contacte al administrador.");
             }
 
             catch (Exception ex)
@@ -205,7 +205,7 @@ namespace Persistencia
 
             catch (SqlException)
             {
-                throw new Exception("La base de datos no se encuantra disponible. Contacte al administrador.");
+                throw new Exception("La base de datos no se encuentra disponible. Contacte al administrador.");
             }
 
             catch (Exception ex)
@@ -250,7 +250,7 @@ namespace Persistencia
 
             catch (SqlException)
             {
-                throw new Exception("La base de datos no se encuantra disponible. Contacte al administrador.");
+                throw new Exception("La base de datos no se encuentra disponible. Contacte al administrador.");
             }
 
             catch (Exception ex)
@@ -290,7 +290,7 @@ namespace Persistencia
 
             catch (SqlException)
             {
-                throw new Exception("La base de datos no se encuantra disponible. Contacte al administrador.");
+                throw new Exception("La base de datos no se encuentra disponible. Contacte al administrador.");
             }
 
             catch (Exception ex)
@@ -333,7 +333,7 @@ namespace Persistencia
 
             catch (SqlException)
             {
-                throw new Exception("La base de datos no se encuantra disponible. Contacte al administrador.");
+                throw new Exception("La base de datos no se encuentra disponible. Contacte al administrador.");
             }
 
             catch (Exception ex)

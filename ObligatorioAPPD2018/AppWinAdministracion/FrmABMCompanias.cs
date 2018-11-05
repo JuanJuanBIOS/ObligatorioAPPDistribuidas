@@ -38,6 +38,47 @@ namespace AppWinAdministracion
             LblError.Text = "";
         }
 
+        private void TBNombre_Validating(object sender, CancelEventArgs e)
+        {
+            //busqueda del Compania
+            try
+            {
+                Companias _unaCompania = null;
+                _unaCompania = new AppWinAdministracion.WSTerminalRef.WSTerminal().Buscar_Compania(TBNombre.Text);
+                this.LimpioControles();
+
+                if (_unaCompania == null)
+                {
+                    BtnAlta.Enabled = true;
+                }
+                else
+                {
+                    BtnModificar.Enabled = true;
+                    BtnBaja.Enabled = true;
+                    _objCompania = _unaCompania;
+                    TBNombre.Text = _unaCompania.Nombre.ToString();
+                    TBDireccion.Text = _unaCompania.Direccion;
+                    TBTel.Text = _unaCompania.Telefono;
+                }
+            }
+
+            catch (System.Web.Services.Protocols.SoapException ex)
+            {
+                if (ex.Detail.InnerText.Length > 70)
+                    LblError.Text = ex.Detail.InnerText.Substring(0, 70);
+                else
+                    LblError.Text = ex.Detail.InnerText;
+            }
+
+            catch (Exception ex)
+            {
+                if (ex.Message.Length > 50)
+                    LblError.Text = ex.Message.Substring(0, 50);
+                else
+                    LblError.Text = ex.Message;
+            }
+        }
+
         private void BtnAlta_Click(object sender, EventArgs e)
         {
             try
@@ -80,45 +121,6 @@ namespace AppWinAdministracion
             {
                 ErrorProv.SetError(TBTel, "Solo se pueden ingresar numeros");
                 e.Cancel = true;
-            }
-        }
-
-        private void TBNombre_Validating(object sender, CancelEventArgs e)
-        {
-            //busqueda del Compania
-            try
-            {
-                Companias _unaCompania = null;
-                _unaCompania = new WSTerminal().Buscar_Compania(TBNombre.Text);
-                this.LimpioControles();
-
-                if (_unaCompania == null)
-                {
-                    BtnAlta.Enabled = true;
-                }
-                else
-                {
-                    BtnModificar.Enabled = true;
-                    BtnBaja.Enabled = true;
-                    _objCompania = _unaCompania;
-                    TBNombre.Text = _unaCompania.Nombre.ToString();
-                    TBDireccion.Text = _unaCompania.Direccion;
-                    TBTel.Text = _unaCompania.Telefono;
-                }
-            }
-            catch (System.Web.Services.Protocols.SoapException ex)
-            {
-                if (ex.Detail.InnerText.Length > 40)
-                    LblError.Text = ex.Detail.InnerText.Substring(0, 40);
-                else
-                    LblError.Text = ex.Detail.InnerText;
-            }
-            catch (Exception ex)
-            {
-                if (ex.Message.Length > 40)
-                    LblError.Text = ex.Message.Substring(0, 40);
-                else
-                    LblError.Text = ex.Message;
             }
         }
     }
