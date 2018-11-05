@@ -87,6 +87,37 @@ CONSTRAINT FK_Internacionales FOREIGN KEY (numero) REFERENCES Viajes(numero)
 )
 GO
 
+
+
+
+
+-- -----------------------------------------------------------------------------------------------
+-- CREACIÓN DE USUARIO IIS PARA QUE EL WEBSERVICE PUEDA ACCEDER A LA BD
+-- -----------------------------------------------------------------------------------------------
+
+USE master
+GO
+
+CREATE LOGIN [IIS APPPOOL\DefaultAppPool] FROM WINDOWS WITH DEFAULT_DATABASE = master
+GO
+
+USE Terminal
+GO
+
+CREATE USER [IIS APPPOOL\DefaultAppPool] FOR LOGIN [IIS APPPOOL\DefaultAppPool]
+GO
+
+GRANT Execute to [IIS APPPOOL\DefaultAppPool]
+go
+
+
+
+
+
+
+
+
+
 -- -----------------------------------------------------------------------------------------------
 -- CREACIÓN DE STORED PROCEDURES
 -- -----------------------------------------------------------------------------------------------

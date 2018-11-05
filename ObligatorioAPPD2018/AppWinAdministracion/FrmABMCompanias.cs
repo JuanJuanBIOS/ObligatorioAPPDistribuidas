@@ -64,16 +64,16 @@ namespace AppWinAdministracion
 
             catch (System.Web.Services.Protocols.SoapException ex)
             {
-                if (ex.Detail.InnerText.Length > 70)
-                    LblError.Text = ex.Detail.InnerText.Substring(0, 70);
+                if (ex.Detail.InnerText.Length > 80)
+                    LblError.Text = ex.Detail.InnerText.Substring(0, 80);
                 else
                     LblError.Text = ex.Detail.InnerText;
             }
 
             catch (Exception ex)
             {
-                if (ex.Message.Length > 50)
-                    LblError.Text = ex.Message.Substring(0, 50);
+                if (ex.Message.Length > 80)
+                    LblError.Text = ex.Message.Substring(0, 80);
                 else
                     LblError.Text = ex.Message;
             }
