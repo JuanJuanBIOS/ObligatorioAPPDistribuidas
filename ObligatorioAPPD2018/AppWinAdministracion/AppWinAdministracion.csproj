@@ -73,10 +73,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service References\WSTerminalRef\Reference.cs">
+    <Compile Include="Web References\WSTerminalRef\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.svcmap</DependentUpon>
+      <DependentUpon>Reference.map</DependentUpon>
     </Compile>
     <EmbeddedResource Include="FrmABMCompanias.resx">
       <DependentUpon>FrmABMCompanias.cs</DependentUpon>
@@ -101,32 +101,30 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Service References\WSTerminalRef\AppWinAdministracion.WSTerminalRef.Companias.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\WSTerminalRef\Companias.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\WSTerminalRef\AppWinAdministracion.WSTerminalRef.Empleados.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\WSTerminalRef\Empleados.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\WSTerminalRef\AppWinAdministracion.WSTerminalRef.Terminales.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\WSTerminalRef\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Service References\WSTerminalRef\AppWinAdministracion.WSTerminalRef.Viajes.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
+    <None Include="Web References\WSTerminalRef\Terminales.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Service References\WSTerminalRef\WSTerminal.wsdl" />
+    <None Include="Web References\WSTerminalRef\Viajes.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WSTerminalRef\WSTerminal.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Imagenes\cancelar.png" />
     <Content Include="Imagenes\eliminar.png" />
     <Content Include="Imagenes\modificar.bmp" />
     <Content Include="Imagenes\nuevo.bmp" />
-    <None Include="Service References\WSTerminalRef\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Service References\WSTerminalRef\configuration.svcinfo" />
-    <None Include="Service References\WSTerminalRef\configuration91.svcinfo" />
-    <None Include="Service References\WSTerminalRef\WSTerminal.disco" />
+    <None Include="Web References\WSTerminalRef\WSTerminal.disco" />
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
@@ -157,7 +155,17 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\WSTerminalRef\" />
+    <WebReferenceUrl Include="http://localhost:55099/WebService/WSTerminal.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\WSTerminalRef\</RelPath>
+      <UpdateFromURL>http://localhost:55099/WebService/WSTerminal.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>AppWinAdministracion_WSTerminalRef_WSTerminal</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

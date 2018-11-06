@@ -22,5 +22,15 @@ namespace AppWinAdministracion.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:55099/WebService/WSTerminal.asmx")]
+        public string AppWinAdministracion_WSTerminalRef_WSTerminal {
+            get {
+                return ((string)(this["AppWinAdministracion_WSTerminalRef_WSTerminal"]));
+            }
+        }
     }
 }
