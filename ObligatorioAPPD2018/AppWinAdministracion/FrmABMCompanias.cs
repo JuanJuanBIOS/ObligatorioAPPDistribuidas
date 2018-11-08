@@ -23,42 +23,60 @@ namespace AppWinAdministracion
             InitializeComponent();
         }
 
-        private void DesActivoBotones()
+
+        private void ActivoPorDefecto()
         {
             BtnAlta.Enabled = false;
             BtnBaja.Enabled = false;
             BtnModificar.Enabled = false;
-        }
 
-        private void LimpioControles()
-        {
             TBNombre.Text = "";
             TBDireccion.Text = "";
             TBTel.Text = "";
-            LblError.Text = "";
+            TBNombre.Focus();
+
+            _objCompania = null;
         }
+
+
+        private void ActivoActualizacion()
+        {
+            BtnAlta.Enabled = false;
+            BtnBaja.Enabled = true;
+            BtnModificar.Enabled = true;
+
+            TBNombre.Text = _objCompania.Nombre;
+            TBDireccion.Text = _objCompania.Direccion;
+            TBTel.Text = _objCompania.Telefono;
+        }
+
+
+        private void ActivoAgregar()
+        {
+            BtnAlta.Enabled = true;
+            BtnBaja.Enabled = false;
+            BtnModificar.Enabled = false;
+
+            TBDireccion.Text = "";
+            TBTel.Text = "";
+        }
+
 
         private void TBNombre_Validating(object sender, CancelEventArgs e)
         {
-            //busqueda del Compania
             try
             {
                 Companias _unaCompania = null;
                 _unaCompania = new AppWinAdministracion.WSTerminalRef.WSTerminal().Buscar_Compania(TBNombre.Text);
-                this.LimpioControles();
 
                 if (_unaCompania == null)
                 {
-                    BtnAlta.Enabled = true;
+                    this.ActivoAgregar();
                 }
                 else
                 {
-                    BtnModificar.Enabled = true;
-                    BtnBaja.Enabled = true;
                     _objCompania = _unaCompania;
-                    TBNombre.Text = _unaCompania.Nombre.ToString();
-                    TBDireccion.Text = _unaCompania.Direccion;
-                    TBTel.Text = _unaCompania.Telefono;
+                    this.ActivoActualizacion();
                 }
             }
 
@@ -79,6 +97,26 @@ namespace AppWinAdministracion
             }
         }
 
+
+        private void TBTel_Validating(object sender, CancelEventArgs e)
+        {
+            if (TBNombre.Text != "" && TBTel.Text != "")
+            {
+                try
+                {
+                    Convert.ToInt32(TBTel.Text);
+                    EPTel.Clear();
+                }
+
+                catch
+                {
+                    EPTel.SetError(TBTel, "Sólo se pueden ingresar números");
+                    e.Cancel = true;
+                }
+            }
+        }
+
+
         private void BtnAlta_Click(object sender, EventArgs e)
         {
             try
@@ -88,40 +126,93 @@ namespace AppWinAdministracion
                 _unaCompania.Direccion = TBDireccion.Text.Trim();
                 _unaCompania.Telefono = TBTel.Text.Trim();
 
-                new WSTerminal().Alta_Compania(_unaCompania);
-                this.DesActivoBotones();
-                this.LimpioControles();
-                LblError.Text = "Alta con Exito";
+                new AppWinAdministracion.WSTerminalRef.WSTerminal().Alta_Compania(_unaCompania);
+                LblError.Text = "Compañía dada de alta con éxito";
+
+                this.ActivoPorDefecto();
             }
+
             catch (System.Web.Services.Protocols.SoapException ex)
             {
-                if (ex.Detail.InnerText.Length > 40)
-                    LblError.Text = ex.Detail.InnerText.Substring(0, 40);
+                if (ex.Detail.InnerText.Length > 80)
+                    LblError.Text = ex.Detail.InnerText.Substring(0, 80);
                 else
                     LblError.Text = ex.Detail.InnerText;
             }
+
             catch (Exception ex)
             {
-                if (ex.Message.Length > 40)
-                    LblError.Text = ex.Message.Substring(0, 40);
+                if (ex.Message.Length > 80)
+                    LblError.Text = ex.Message.Substring(0, 80);
                 else
                     LblError.Text = ex.Message;
             }
         }
 
-        private void TBTel_Validating(object sender, CancelEventArgs e)
+
+        private void BtnBaja_Click(object sender, EventArgs e)
         {
-            //verifico ingreso de solo numeros
             try
             {
-                Convert.ToInt32(TBTel.Text);
-                ErrorProv.Clear();
+                new AppWinAdministracion.WSTerminalRef.WSTerminal().Eliminar_Compania(_objCompania);
+                LblError.Text = "Compañía eliminada con éxito";
+
+                this.ActivoPorDefecto();
             }
-            catch (Exception)
+
+            catch (System.Web.Services.Protocols.SoapException ex)
             {
-                ErrorProv.SetError(TBTel, "Solo se pueden ingresar numeros");
-                e.Cancel = true;
+                if (ex.Detail.InnerText.Length > 80)
+                    LblError.Text = ex.Detail.InnerText.Substring(0, 80);
+                else
+                    LblError.Text = ex.Detail.InnerText;
             }
+
+            catch (Exception ex)
+            {
+                if (ex.Message.Length > 80)
+                    LblError.Text = ex.Message.Substring(0, 80);
+                else
+                    LblError.Text = ex.Message;
+            }
+        }
+
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _objCompania.Nombre = TBNombre.Text.Trim();
+                _objCompania.Direccion = TBDireccion.Text.Trim();
+                _objCompania.Telefono = TBTel.Text.Trim();
+
+                new AppWinAdministracion.WSTerminalRef.WSTerminal().Modificar_Compania(_objCompania);
+                LblError.Text = "Compañía modificada con éxito";
+
+                this.ActivoPorDefecto();
+            }
+
+            catch (System.Web.Services.Protocols.SoapException ex)
+            {
+                if (ex.Detail.InnerText.Length > 80)
+                    LblError.Text = ex.Detail.InnerText.Substring(0, 80);
+                else
+                    LblError.Text = ex.Detail.InnerText;
+            }
+
+            catch (Exception ex)
+            {
+                if (ex.Message.Length > 80)
+                    LblError.Text = ex.Message.Substring(0, 80);
+                else
+                    LblError.Text = ex.Message;
+            }
+        }
+
+
+        private void BtnDeshacer_Click(object sender, EventArgs e)
+        {
+            this.ActivoPorDefecto();
         }
     }
 }

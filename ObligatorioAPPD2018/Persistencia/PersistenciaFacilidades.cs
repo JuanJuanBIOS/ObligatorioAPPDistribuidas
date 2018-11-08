@@ -81,6 +81,10 @@ namespace Persistencia
                 }
                 if (retorno == -2)
                 {
+                    throw new Exception("La facilidad ingresada ya existe en la base de datos");
+                }
+                if (retorno == -3)
+                {
                     throw new Exception("Error al crear la terminal en la base de datos");
                 }
             }

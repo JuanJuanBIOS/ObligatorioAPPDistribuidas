@@ -155,10 +155,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:55099/WebService/WSTerminal.asmx">
+    <WebReferenceUrl Include="http://localhost/WSTerminal/WSTerminal.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WSTerminalRef\</RelPath>
-      <UpdateFromURL>http://localhost:55099/WebService/WSTerminal.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost/WSTerminal/WSTerminal.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

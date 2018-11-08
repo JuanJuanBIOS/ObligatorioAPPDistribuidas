@@ -62,7 +62,7 @@ CREATE TABLE Viajes(
 numero INT NOT NULL PRIMARY KEY, 
 compania VARCHAR(50) NOT NULL FOREIGN KEY REFERENCES Companias(nombre),
 destino VARCHAR(3) NOT NULL FOREIGN KEY REFERENCES Terminales(codigo),
-fecha_partida datetime NOT NULL,
+fecha_partida datetime NOT NULL CHECK (fecha_partida >  GETDATE()),
 fecha_arribo datetime NOT NULL,
 asientos INT NOT NULL CHECK(asientos > 0),
 empleado VARCHAR(9) NOT NULL FOREIGN KEY REFERENCES Empleados(cedula),
@@ -495,15 +495,18 @@ CREATE PROCEDURE Alta_Facilidades
 @terminal VARCHAR(3),
 @nombre VARCHAR(50)
 AS
-BEGIN
+BEGIN	
 	IF NOT EXISTS(SELECT * FROM Terminales WHERE codigo = @terminal AND activo = 1)
 		RETURN -1
+	
+	IF EXISTS(SELECT * FROM Facilidades WHERE terminal = @terminal AND nombre = @nombre)
+		RETURN -2
 	
 	INSERT INTO Facilidades (terminal, nombre) VALUES (@terminal, @nombre)
 	IF (@@ERROR = 0)
 		RETURN 1
 	ELSE
-		RETURN -2
+		RETURN -3
 END
 GO
 --Prueba Alta_Facilidades 'GGG', 'Facilidad 3'

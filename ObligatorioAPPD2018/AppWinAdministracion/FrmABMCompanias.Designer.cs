@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.BarraDeHerramientas = new System.Windows.Forms.ToolStrip();
             this.BtnAlta = new System.Windows.Forms.ToolStripButton();
             this.BtnBaja = new System.Windows.Forms.ToolStripButton();
             this.BtnModificar = new System.Windows.Forms.ToolStripButton();
             this.BtnDeshacer = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.BarraDeEstado = new System.Windows.Forms.StatusStrip();
             this.LblError = new System.Windows.Forms.ToolStripStatusLabel();
             this.LblNombre = new System.Windows.Forms.Label();
             this.LblDireccion = new System.Windows.Forms.Label();
@@ -42,24 +42,24 @@
             this.TBNombre = new System.Windows.Forms.TextBox();
             this.TBDireccion = new System.Windows.Forms.TextBox();
             this.TBTel = new System.Windows.Forms.TextBox();
-            this.ErrorProv = new System.Windows.Forms.ErrorProvider(this.components);
-            this.toolStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorProv)).BeginInit();
+            this.EPTel = new System.Windows.Forms.ErrorProvider(this.components);
+            this.BarraDeHerramientas.SuspendLayout();
+            this.BarraDeEstado.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EPTel)).BeginInit();
             this.SuspendLayout();
             // 
-            // toolStrip1
+            // BarraDeHerramientas
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BarraDeHerramientas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.BtnAlta,
             this.BtnBaja,
             this.BtnModificar,
             this.BtnDeshacer});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(487, 25);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
+            this.BarraDeHerramientas.Location = new System.Drawing.Point(0, 0);
+            this.BarraDeHerramientas.Name = "BarraDeHerramientas";
+            this.BarraDeHerramientas.Size = new System.Drawing.Size(487, 25);
+            this.BarraDeHerramientas.TabIndex = 0;
+            this.BarraDeHerramientas.Text = "toolStrip1";
             // 
             // BtnAlta
             // 
@@ -83,6 +83,7 @@
             this.BtnBaja.Size = new System.Drawing.Size(23, 22);
             this.BtnBaja.Text = "toolStripButton2";
             this.BtnBaja.ToolTipText = "Eliminar";
+            this.BtnBaja.Click += new System.EventHandler(this.BtnBaja_Click);
             // 
             // BtnModificar
             // 
@@ -94,6 +95,7 @@
             this.BtnModificar.Size = new System.Drawing.Size(23, 22);
             this.BtnModificar.Text = "toolStripButton3";
             this.BtnModificar.ToolTipText = "Modificar";
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnDeshacer
             // 
@@ -104,16 +106,17 @@
             this.BtnDeshacer.Size = new System.Drawing.Size(23, 22);
             this.BtnDeshacer.Text = "toolStripButton4";
             this.BtnDeshacer.ToolTipText = "Deshacer";
+            this.BtnDeshacer.Click += new System.EventHandler(this.BtnDeshacer_Click);
             // 
-            // statusStrip1
+            // BarraDeEstado
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.BarraDeEstado.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.LblError});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 209);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(487, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
+            this.BarraDeEstado.Location = new System.Drawing.Point(0, 209);
+            this.BarraDeEstado.Name = "BarraDeEstado";
+            this.BarraDeEstado.Size = new System.Drawing.Size(487, 22);
+            this.BarraDeEstado.TabIndex = 1;
+            this.BarraDeEstado.Text = "statusStrip1";
             // 
             // LblError
             // 
@@ -167,12 +170,12 @@
             this.TBTel.Location = new System.Drawing.Point(111, 118);
             this.TBTel.Name = "TBTel";
             this.TBTel.Size = new System.Drawing.Size(172, 20);
-            this.TBTel.TabIndex = 4;
+            this.TBTel.TabIndex = 5;
             this.TBTel.Validating += new System.ComponentModel.CancelEventHandler(this.TBTel_Validating);
             // 
-            // ErrorProv
+            // EPTel
             // 
-            this.ErrorProv.ContainerControl = this;
+            this.EPTel.ContainerControl = this;
             // 
             // FrmABMCompanias
             // 
@@ -185,15 +188,15 @@
             this.Controls.Add(this.LblTel);
             this.Controls.Add(this.LblDireccion);
             this.Controls.Add(this.LblNombre);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.BarraDeEstado);
+            this.Controls.Add(this.BarraDeHerramientas);
             this.Name = "FrmABMCompanias";
             this.Text = "Mantenimiento de Companías";
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ErrorProv)).EndInit();
+            this.BarraDeHerramientas.ResumeLayout(false);
+            this.BarraDeHerramientas.PerformLayout();
+            this.BarraDeEstado.ResumeLayout(false);
+            this.BarraDeEstado.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.EPTel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -201,12 +204,12 @@
 
         #endregion
 
-        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStrip BarraDeHerramientas;
         private System.Windows.Forms.ToolStripButton BtnAlta;
         private System.Windows.Forms.ToolStripButton BtnBaja;
         private System.Windows.Forms.ToolStripButton BtnModificar;
         private System.Windows.Forms.ToolStripButton BtnDeshacer;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip BarraDeEstado;
         private System.Windows.Forms.ToolStripStatusLabel LblError;
         private System.Windows.Forms.Label LblNombre;
         private System.Windows.Forms.Label LblDireccion;
@@ -214,6 +217,6 @@
         private System.Windows.Forms.TextBox TBNombre;
         private System.Windows.Forms.TextBox TBDireccion;
         private System.Windows.Forms.TextBox TBTel;
-        private System.Windows.Forms.ErrorProvider ErrorProv;
+        private System.Windows.Forms.ErrorProvider EPTel;
     }
 }
