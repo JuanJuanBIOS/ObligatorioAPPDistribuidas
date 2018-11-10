@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmABMTerminales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmABMTerminales.Designer.cs">
+      <DependentUpon>FrmABMTerminales.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmABMCompanias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +84,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmABMTerminales.resx">
+      <DependentUpon>FrmABMTerminales.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmABMCompanias.resx">
       <DependentUpon>FrmABMCompanias.cs</DependentUpon>
     </EmbeddedResource>
