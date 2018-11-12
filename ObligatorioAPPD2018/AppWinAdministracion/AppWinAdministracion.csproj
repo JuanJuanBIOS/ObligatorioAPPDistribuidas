@@ -65,6 +65,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlLogueo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlLogueo.Designer.cs">
+      <DependentUpon>ControlLogueo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmABMTerminales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,12 @@
     <Compile Include="FrmABMCompanias.Designer.cs">
       <DependentUpon>FrmABMCompanias.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLogueo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogueo.Designer.cs">
+      <DependentUpon>FrmLogueo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web References\WSTerminalRef\Reference.cs">
@@ -84,11 +96,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ControlLogueo.resx">
+      <DependentUpon>ControlLogueo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmABMTerminales.resx">
       <DependentUpon>FrmABMTerminales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmABMCompanias.resx">
       <DependentUpon>FrmABMCompanias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogueo.resx">
+      <DependentUpon>FrmLogueo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
