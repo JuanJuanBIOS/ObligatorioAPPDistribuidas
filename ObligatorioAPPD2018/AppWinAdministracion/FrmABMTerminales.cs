@@ -16,9 +16,9 @@ namespace AppWinAdministracion
     {
         //creo atributo que mantiene en memoria el objeto Terminal con el cual se esta trabajando
         
-        private Terminales _objTerminal = null;
+        private Terminales _objTerminal;
 
-        private List<Facilidades> _objListaFacilidades = null;
+        private List<Facilidades> _objListaFacilidades;
 
         public FrmABMTerminales()
         {
@@ -115,7 +115,7 @@ namespace AppWinAdministracion
                 _unaTerminal.Codigo = TBCodigo.Text.Trim();
                 _unaTerminal.Pais = CBPais.Text;
                 _unaTerminal.Ciudad = TBCiudad.Text.Trim();
-                //_unaTerminal.ListaFacilidades = (List<Facilidades>)_objListaFacilidades;
+                _unaTerminal.ListaFacilidades = (List<Facilidades>)_objListaFacilidades;
 
                 new AppWinAdministracion.WSTerminalRef.WSTerminal().Alta_Terminal(_unaTerminal);
                 LblError.Text = "Terminal dada de alta con éxito";

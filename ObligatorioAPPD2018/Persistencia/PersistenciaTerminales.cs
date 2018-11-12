@@ -51,7 +51,7 @@ namespace Persistencia
                     string _codigo = (string)_Reader["codigo"];
                     string _ciudad = (string)_Reader["ciudad"];
                     string _pais = (string)_Reader["pais"];
-                    List<Facilidades> _facilidades = new List<Facilidades>();
+                    List<string> _facilidades = new List<string>();
                     _facilidades = PersistenciaFacilidades.CargoFacilidades(pCodTerminal);
 
                     unaTer = new Terminales(_codigo, _ciudad, _pais, _facilidades);
@@ -101,7 +101,7 @@ namespace Persistencia
                     string _codigo = (string)_Reader["codigo"];
                     string _ciudad = (string)_Reader["ciudad"];
                     string _pais = (string)_Reader["pais"];
-                    List<Facilidades> _facilidades = new List<Facilidades>();
+                    List<string> _facilidades = new List<string>();
                     _facilidades = PersistenciaFacilidades.CargoFacilidades(pCodTerminal);
 
                     unaTer = new Terminales(_codigo, _ciudad, _pais, _facilidades);
@@ -164,7 +164,7 @@ namespace Persistencia
                     throw new Exception("Error al crear la terminal en la base de datos");
                 }
 
-                foreach (Facilidades unaFac in unaTer.ListaFacilidades)
+                foreach (string unaFac in unaTer.ListaFacilidades)
                 {
                     PersistenciaFacilidades.Alta_Facilidad(unaFac, unaTer, _transaccion);
                 }
@@ -275,7 +275,7 @@ namespace Persistencia
 
                 PersistenciaFacilidades.Eliminar_Facilidades(unaTer, _transaccion);
 
-                foreach (Facilidades unaFac in unaTer.ListaFacilidades)
+                foreach (string unaFac in unaTer.ListaFacilidades)
                 {
                     PersistenciaFacilidades.Alta_Facilidad(unaFac, unaTer, _transaccion);
                 }

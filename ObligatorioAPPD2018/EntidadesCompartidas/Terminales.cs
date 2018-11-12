@@ -12,7 +12,7 @@ namespace EntidadesCompartidas
         private string _codigo;
         private string _ciudad;
         private string _pais;
-        private List<Facilidades> _facilidades = new List<Facilidades>();
+        private List<string> _facilidades;
 
         //Propiedades
         public string Codigo
@@ -73,7 +73,7 @@ namespace EntidadesCompartidas
             }
         }
 
-        public List<Facilidades> ListaFacilidades
+        public List<string> ListaFacilidades
         {
             get { return _facilidades; }
             set
@@ -91,7 +91,7 @@ namespace EntidadesCompartidas
 
 
         //Constructor
-        public Terminales(string pCodigo, string pCiudad, string pPais, List<Facilidades> pFacilidades)
+        public Terminales(string pCodigo, string pCiudad, string pPais, List<string> pFacilidades)
         {
             Codigo = pCodigo;
             Ciudad = pCiudad;

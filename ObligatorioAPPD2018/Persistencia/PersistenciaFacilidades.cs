@@ -10,7 +10,7 @@ namespace Persistencia
 {
     internal class PersistenciaFacilidades
     {
-        internal static List<Facilidades> CargoFacilidades(string pcodTerminal)
+        internal static List<string> CargoFacilidades(string pcodTerminal)
         {
             SqlConnection oConexion = new SqlConnection(Conexion.STR);
             SqlCommand oComando = new SqlCommand("Buscar_Facilidades", oConexion);
@@ -18,7 +18,7 @@ namespace Persistencia
 
             oComando.Parameters.AddWithValue("@terminal", pcodTerminal);
 
-            List<Facilidades> unaListaFacilidades = new List<Facilidades>();
+            List<string> unaListaFacilidades = new List<string>();
             try
             {
                 oConexion.Open();
@@ -29,8 +29,7 @@ namespace Persistencia
                 {
                     while (_Reader.Read())
                     {
-                        Facilidades _unaFacilidad = new Facilidades((string)_Reader["nombre"]);
-                        unaListaFacilidades.Add(_unaFacilidad);
+                        unaListaFacilidades.Add((string)_Reader["nombre"]);
                     }
                 }
 
@@ -54,13 +53,13 @@ namespace Persistencia
             return unaListaFacilidades;
         }
 
-        internal static void Alta_Facilidad(Facilidades pFacilidad, Terminales pTer, SqlTransaction _pTransaccion)
+        internal static void Alta_Facilidad(string pFacilidad, Terminales pTer, SqlTransaction _pTransaccion)
         {
             SqlCommand oComando = new SqlCommand("Alta_Facilidades", _pTransaccion.Connection);
             oComando.CommandType = CommandType.StoredProcedure;
 
             oComando.Parameters.AddWithValue("@terminal", pTer.Codigo);
-            oComando.Parameters.AddWithValue("@nombre", pFacilidad.Facilidad);
+            oComando.Parameters.AddWithValue("@nombre", pFacilidad);
 
             SqlParameter oRetorno = new SqlParameter("@Retorno", SqlDbType.Int);
             oRetorno.Direction = ParameterDirection.ReturnValue;
