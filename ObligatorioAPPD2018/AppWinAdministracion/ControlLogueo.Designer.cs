@@ -58,6 +58,7 @@
             this.TBCedula.Name = "TBCedula";
             this.TBCedula.Size = new System.Drawing.Size(100, 20);
             this.TBCedula.TabIndex = 2;
+            this.TBCedula.Validating += new System.ComponentModel.CancelEventHandler(this.TBCedula_Validating);
             // 
             // TBContraseña
             // 
