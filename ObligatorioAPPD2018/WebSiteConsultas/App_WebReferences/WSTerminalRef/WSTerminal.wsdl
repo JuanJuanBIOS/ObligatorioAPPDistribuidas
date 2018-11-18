@@ -2,6 +2,74 @@
 <wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="ParaPoderSerializar">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="unNac" type="tns:Nacionales" />
+            <s:element minOccurs="0" maxOccurs="1" name="unInter" type="tns:Internacionales" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="Nacionales">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Viajes">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Paradas" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:complexType name="Viajes" abstract="true">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="Numero" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Compania" type="tns:Companias" />
+          <s:element minOccurs="0" maxOccurs="1" name="Terminal" type="tns:Terminales" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha_partida" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Fecha_arribo" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Asientos" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Empleado" type="tns:Empleados" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Companias">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Terminales">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Ciudad" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pais" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ListaFacilidades" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Empleados">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Pass" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Internacionales">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:Viajes">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="Servicio" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Documentacion" type="s:string" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="ParaPoderSerializarResponse">
+        <s:complexType />
+      </s:element>
       <s:element name="Buscar_Compania">
         <s:complexType>
           <s:sequence>
@@ -16,13 +84,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Companias">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Direccion" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Telefono" type="s:string" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Alta_Compania">
         <s:complexType>
           <s:sequence>
@@ -92,19 +153,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Terminales">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Codigo" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Ciudad" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Pais" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="ListaFacilidades" type="tns:ArrayOfString" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="ArrayOfString">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Alta_Terminal">
         <s:complexType>
           <s:sequence>
@@ -174,24 +222,6 @@
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Viajes" abstract="true">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="Numero" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Compania" type="tns:Companias" />
-          <s:element minOccurs="0" maxOccurs="1" name="Terminal" type="tns:Terminales" />
-          <s:element minOccurs="1" maxOccurs="1" name="Fecha_partida" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="Fecha_arribo" type="s:dateTime" />
-          <s:element minOccurs="1" maxOccurs="1" name="Asientos" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Empleado" type="tns:Empleados" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Empleados">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="1" name="Cedula" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Pass" type="s:string" />
-          <s:element minOccurs="0" maxOccurs="1" name="Nombre" type="s:string" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="Alta_Viaje">
         <s:complexType>
           <s:sequence>
@@ -312,6 +342,12 @@
       </s:element>
     </s:schema>
   </wsdl:types>
+  <wsdl:message name="ParaPoderSerializarSoapIn">
+    <wsdl:part name="parameters" element="tns:ParaPoderSerializar" />
+  </wsdl:message>
+  <wsdl:message name="ParaPoderSerializarSoapOut">
+    <wsdl:part name="parameters" element="tns:ParaPoderSerializarResponse" />
+  </wsdl:message>
   <wsdl:message name="Buscar_CompaniaSoapIn">
     <wsdl:part name="parameters" element="tns:Buscar_Compania" />
   </wsdl:message>
@@ -451,6 +487,10 @@
     <wsdl:part name="parameters" element="tns:Modificar_EmpleadoResponse" />
   </wsdl:message>
   <wsdl:portType name="WSTerminalSoap">
+    <wsdl:operation name="ParaPoderSerializar">
+      <wsdl:input message="tns:ParaPoderSerializarSoapIn" />
+      <wsdl:output message="tns:ParaPoderSerializarSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Buscar_Compania">
       <wsdl:input message="tns:Buscar_CompaniaSoapIn" />
       <wsdl:output message="tns:Buscar_CompaniaSoapOut" />
@@ -546,6 +586,15 @@
   </wsdl:portType>
   <wsdl:binding name="WSTerminalSoap" type="tns:WSTerminalSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ParaPoderSerializar">
+      <soap:operation soapAction="http://tempuri.org/ParaPoderSerializar" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Buscar_Compania">
       <soap:operation soapAction="http://tempuri.org/Buscar_Compania" style="document" />
       <wsdl:input>
@@ -756,6 +805,15 @@
   </wsdl:binding>
   <wsdl:binding name="WSTerminalSoap12" type="tns:WSTerminalSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ParaPoderSerializar">
+      <soap12:operation soapAction="http://tempuri.org/ParaPoderSerializar" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Buscar_Compania">
       <soap12:operation soapAction="http://tempuri.org/Buscar_Compania" style="document" />
       <wsdl:input>

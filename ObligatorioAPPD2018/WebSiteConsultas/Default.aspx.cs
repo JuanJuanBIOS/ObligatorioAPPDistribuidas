@@ -20,34 +20,22 @@ public partial class _Default : System.Web.UI.Page
 
             try
             {
-                ////Obtengo lista de terminales y lo guardo en el session
-                //ILogicaTerminales FTerminal = FabricaLogica.getLogicaTerminal();
-                //List<WSTerminal.Terminales> ListaTerminales = FTerminal.Listar_Todos_Terminales();
-                //Session["Terminales"] = ListaTerminales;
 
                 //Obtengo lista de viajes y lo guardo en el session
                 List<WSTerminalRef.Viajes> ListaViajes = new WSTerminalRef.WSTerminal().Listar_Viajes().ToList<Viajes>();
                 Session["ListaViajes"] = ListaViajes;
 
                 //Obtengo lista de terminales en mis viajes usando LinQ
+               
                 List<Terminales> ListaTerminales = (from unViaje in (List<Viajes>)Session["ListaViajes"]
-                                                    select unViaje.Terminal).Distinct().ToList<Terminales>();
-
-
-
-
-                //List<Viajes> viajesfiltrados = (from unViaje in (List<Viajes>)Session["ListaViajes"]
-                //                            where unViaje.Terminal.Codigo == DDLTerminal.SelectedValue
-                //                            && unViaje.Fecha_partida >= DesFechaPart
-                //                            && unViaje.Fecha_partida <= Convert.ToDateTime(HasFechaPart)
-                //                            select unViaje).ToList<Viajes>();
-
+                                                    select unViaje.Terminal).GroupBy(n => new { n.Codigo }).Select(g => g.FirstOrDefault()).ToList();
+          
 
                 Session["Terminales"] = ListaTerminales;
 
                 //Obtengo lista de Companias en mis viajes usando LinQ
                 List<Companias> ListaCompanias = (from unViaje in (List<Viajes>)Session["ListaViajes"]
-                                                    select unViaje.Compania).Distinct().ToList<Companias>();
+                                                    select unViaje.Compania).GroupBy(n => new { n.Nombre }).Select(g => g.FirstOrDefault()).ToList();;
                 Session["Companias"] = ListaCompanias;
 
                 //Predefino los valores en los dropdown lists
@@ -63,11 +51,8 @@ public partial class _Default : System.Web.UI.Page
 
 
                 //Uso LinQ para tener solo los viajes que aún no hayan partido
-                List<Viajes> viajesnopartieron = (from unViaje in ListaViajes
-                                                  where unViaje.Fecha_partida >= DateTime.Now
-                                                  select unViaje).ToList<Viajes>();
 
-                RepeaterViajes.DataSource = viajesnopartieron;
+                RepeaterViajes.DataSource = ListaViajes;
                 RepeaterViajes.DataBind();
             }
 
@@ -232,12 +217,8 @@ public partial class _Default : System.Web.UI.Page
         FiltroDestinoObligatorio();
         LblError.Text = "";
 
-        //Uso LinQ para tener solo los viajes que aún no hayan partido
-        List<Viajes> viajesnopartieron = (from unViaje in (List<Viajes>)Session["ListaViajes"]
-                                          where unViaje.Fecha_partida >= DateTime.Now
-                                          select unViaje).ToList<Viajes>();
-
-        RepeaterViajes.DataSource = viajesnopartieron;
+        //El listado de viajes ya son los de despues de la fecha de hoy -error de la entrega pasada
+        RepeaterViajes.DataSource = Session["ListaViajes"];
         RepeaterViajes.DataBind();
     }
 
