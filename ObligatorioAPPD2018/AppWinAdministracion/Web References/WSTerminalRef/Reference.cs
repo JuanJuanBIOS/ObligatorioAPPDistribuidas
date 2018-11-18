@@ -1045,7 +1045,7 @@ namespace AppWinAdministracion.WSTerminalRef {
         
         private string paisField;
         
-        private Facilidades[] listaFacilidadesField;
+        private string[] listaFacilidadesField;
         
         /// <remarks/>
         public string Codigo {
@@ -1078,33 +1078,12 @@ namespace AppWinAdministracion.WSTerminalRef {
         }
         
         /// <remarks/>
-        public Facilidades[] ListaFacilidades {
+        public string[] ListaFacilidades {
             get {
                 return this.listaFacilidadesField;
             }
             set {
                 this.listaFacilidadesField = value;
-            }
-        }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3056.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Facilidades {
-        
-        private string facilidadField;
-        
-        /// <remarks/>
-        public string Facilidad {
-            get {
-                return this.facilidadField;
-            }
-            set {
-                this.facilidadField = value;
             }
         }
     }

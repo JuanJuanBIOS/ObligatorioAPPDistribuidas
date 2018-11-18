@@ -25,7 +25,6 @@ namespace AppWinAdministracion
             InitializeComponent();
         }
 
-
         private void ActivoPorDefecto()
         {
             BtnAlta.Enabled = false;
@@ -146,7 +145,7 @@ namespace AppWinAdministracion
             {   
                 Facilidades _unaFacilidad = new Facilidades();
                 _unaFacilidad.Facilidad = TBFacilidad.Text.Trim();
-
+                
                 _objListaFacilidades.Add(_unaFacilidad);
 
                 TBFacilidad.Text = "";
