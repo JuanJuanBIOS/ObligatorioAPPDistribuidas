@@ -47,8 +47,14 @@ namespace AppWinAdministracion
 
         private void BtnABMInternacionales_Click(object sender, EventArgs e)
         {
-            Form _unForm = new FrmABMNacionales(_EmpLogueado);
+            Form _unForm = new FrmABMInternacionales(_EmpLogueado);
             _unForm.ShowDialog();
+        }
+
+        private void BtnABMEmpleados_Click(object sender, EventArgs e)
+        {
+            //Form _unForm = new FrmABMEmpleados(_EmpLogueado);
+            //_unForm.ShowDialog();
         }
     }
 }
