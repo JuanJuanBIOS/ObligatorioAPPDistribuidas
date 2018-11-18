@@ -974,6 +974,7 @@ AS
 BEGIN
 	SELECT Viajes.*, Nacionales.paradas FROM Viajes INNER JOIN Nacionales 
 	ON Viajes.numero = Nacionales.numero
+	WHERE Viajes.fecha_partida> GETDATE()
 END
 GO
 -- Prueba Listar_ViajesNacionales
@@ -985,7 +986,8 @@ CREATE PROCEDURE Listar_Viajes_Internacionales
 AS
 BEGIN
 	SELECT Viajes.*, Internacionales.servicio, Internacionales.documentacion 
-	FROM Viajes INNER JOIN Internacionales ON Viajes.numero = Internacionales.numero 
+	FROM Viajes INNER JOIN Internacionales ON Viajes.numero = Internacionales.numero
+	WHERE Viajes.fecha_partida> GETDATE()
 END
 GO
 -- Prueba Listar_ViajesInternacionales
