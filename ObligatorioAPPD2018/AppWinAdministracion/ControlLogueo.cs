@@ -12,30 +12,28 @@ namespace AppWinAdministracion
 {
     public partial class ControlLogueo : UserControl
     {
-        private Empleados _objEmpleado = null;
-
         public ControlLogueo()
         {
             InitializeComponent();
         }
 
-        private void TBCedula_Validating(object sender, CancelEventArgs e)
+        public int Usuario
         {
-            try
-            {
-                Empleados _unEmpleado = null;
-                _unEmpleado = new AppWinAdministracion.WSTerminalRef.WSTerminal().Buscar_Empleado(TBCedula.Text);
+            get { return (Convert.ToInt32(TBCedula.Text.Trim())); }
+        }
 
-                if (_unEmpleado == null)
-                {
-                    MessageBox.Show("El usuario no existe");
+        public string Contraseña
+        {
+            get { return (TBContraseña.Text.Trim()); }
+        }
 
-                }
+        //Se define evento para logueo
+        public event EventHandler AutenticarUsuario;
 
-            }
-            
-            catch (System.Web.Services.Protocols.SoapException ex)
-            {}
+        //provoco el evento de logueo cuando se presiona el boton
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            AutenticarUsuario(this, new EventArgs());
         }
     }
 }
