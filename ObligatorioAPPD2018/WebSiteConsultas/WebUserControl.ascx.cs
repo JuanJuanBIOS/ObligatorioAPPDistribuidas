@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using EntidadesCompartidas;
+using WSTerminalRef;
 
 public partial class WebUserControl : System.Web.UI.UserControl
 {
@@ -81,8 +81,9 @@ public partial class WebUserControl : System.Web.UI.UserControl
         TBCiudadTer.Text = _viaje.Terminal.Ciudad;
         TBPaisTer.Text = _viaje.Terminal.Pais;
 
+
         LBFacilidadesTer.DataSource = _viaje.Terminal.ListaFacilidades;
-        LBFacilidadesTer.DataTextField = "Facilidad";
+        LBFacilidadesTer.DataTextField = "Facilidad";            
         LBFacilidadesTer.DataBind();
     }
 }
