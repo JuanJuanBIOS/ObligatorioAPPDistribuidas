@@ -33,6 +33,11 @@ namespace AppWinAdministracion
             TBNombre.Text = "";
             TBDireccion.Text = "";
             TBTel.Text = "";
+
+            TBNombre.Enabled = true;
+            //TBDireccion.Enabled = false;
+            TBTel.Enabled = false;
+
             TBNombre.Focus();
 
             _objCompania = null;
@@ -48,6 +53,10 @@ namespace AppWinAdministracion
             TBNombre.Text = _objCompania.Nombre;
             TBDireccion.Text = _objCompania.Direccion;
             TBTel.Text = _objCompania.Telefono;
+
+            TBNombre.Enabled = false;
+            TBDireccion.Enabled = true;
+            TBTel.Enabled = true;
         }
 
 
@@ -59,6 +68,10 @@ namespace AppWinAdministracion
 
             TBDireccion.Text = "";
             TBTel.Text = "";
+
+            TBNombre.Enabled = false;
+            TBDireccion.Enabled = true;
+            TBTel.Enabled = true;
         }
 
 

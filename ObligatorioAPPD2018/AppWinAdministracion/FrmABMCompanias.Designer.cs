@@ -167,6 +167,7 @@
             // 
             // TBTel
             // 
+            this.TBTel.Enabled = false;
             this.TBTel.Location = new System.Drawing.Point(111, 118);
             this.TBTel.Name = "TBTel";
             this.TBTel.Size = new System.Drawing.Size(172, 20);

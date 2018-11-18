@@ -46,7 +46,7 @@
             this.TBFacilidad = new System.Windows.Forms.TextBox();
             this.LblFacilidades = new System.Windows.Forms.Label();
             this.BtnAgregar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnQuitar = new System.Windows.Forms.Button();
             this.LBFacilidades = new System.Windows.Forms.ListBox();
             this.BarraDeHerramientas.SuspendLayout();
             this.BarraDeEstado.SuspendLayout();
@@ -109,6 +109,7 @@
             this.BtnDeshacer.Size = new System.Drawing.Size(23, 22);
             this.BtnDeshacer.Text = "toolStripButton4";
             this.BtnDeshacer.ToolTipText = "Deshacer";
+            this.BtnDeshacer.Click += new System.EventHandler(this.BtnDeshacer_Click);
             // 
             // BarraDeEstado
             // 
@@ -163,6 +164,7 @@
             // 
             // TBCiudad
             // 
+            this.TBCiudad.Enabled = false;
             this.TBCiudad.Location = new System.Drawing.Point(111, 118);
             this.TBCiudad.Name = "TBCiudad";
             this.TBCiudad.Size = new System.Drawing.Size(172, 20);
@@ -175,6 +177,7 @@
             // CBPais
             // 
             this.CBPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBPais.Enabled = false;
             this.CBPais.FormattingEnabled = true;
             this.CBPais.Items.AddRange(new object[] {
             "",
@@ -189,6 +192,7 @@
             // 
             // TBFacilidad
             // 
+            this.TBFacilidad.Enabled = false;
             this.TBFacilidad.Location = new System.Drawing.Point(348, 85);
             this.TBFacilidad.Name = "TBFacilidad";
             this.TBFacilidad.Size = new System.Drawing.Size(173, 20);
@@ -205,6 +209,7 @@
             // 
             // BtnAgregar
             // 
+            this.BtnAgregar.Enabled = false;
             this.BtnAgregar.Location = new System.Drawing.Point(348, 121);
             this.BtnAgregar.Name = "BtnAgregar";
             this.BtnAgregar.Size = new System.Drawing.Size(75, 23);
@@ -213,14 +218,16 @@
             this.BtnAgregar.UseVisualStyleBackColor = true;
             this.BtnAgregar.Click += new System.EventHandler(this.BtnAgregar_Click);
             // 
-            // button1
+            // BtnQuitar
             // 
-            this.button1.Location = new System.Drawing.Point(446, 121);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Quitar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnQuitar.Enabled = false;
+            this.BtnQuitar.Location = new System.Drawing.Point(446, 121);
+            this.BtnQuitar.Name = "BtnQuitar";
+            this.BtnQuitar.Size = new System.Drawing.Size(75, 23);
+            this.BtnQuitar.TabIndex = 7;
+            this.BtnQuitar.Text = "Quitar";
+            this.BtnQuitar.UseVisualStyleBackColor = true;
+            this.BtnQuitar.Click += new System.EventHandler(this.BtnQuitar_Click);
             // 
             // LBFacilidades
             // 
@@ -236,7 +243,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 231);
             this.Controls.Add(this.LBFacilidades);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnQuitar);
             this.Controls.Add(this.BtnAgregar);
             this.Controls.Add(this.LblFacilidades);
             this.Controls.Add(this.TBFacilidad);
@@ -276,7 +283,7 @@
         private System.Windows.Forms.TextBox TBCiudad;
         private System.Windows.Forms.ErrorProvider EPTel;
         private System.Windows.Forms.ComboBox CBPais;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnQuitar;
         private System.Windows.Forms.Button BtnAgregar;
         private System.Windows.Forms.Label LblFacilidades;
         private System.Windows.Forms.TextBox TBFacilidad;

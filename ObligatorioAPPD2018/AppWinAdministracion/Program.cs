@@ -15,7 +15,9 @@ namespace AppWinAdministracion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogueo());
+            Application.Run(new FrmABMTerminales());
+            //FrmABMCompanias
+            //FrmABMTerminales
         }
     }
 }
