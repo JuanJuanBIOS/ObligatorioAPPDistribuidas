@@ -17,8 +17,7 @@ namespace AppWinAdministracion
         //creo atributo que mantiene en memoria el objeto Terminal con el cual se esta trabajando
         
         private Terminales _objTerminal;
-
-        private List<Facilidades> _objListaFacilidades;
+        private List<string> _objListaFacilidades;
 
         public FrmABMTerminales()
         {
@@ -83,8 +82,6 @@ namespace AppWinAdministracion
                 else
                 {
                     _objTerminal = _unaTerminal;
-                    _objListaFacilidades = new List<Facilidades>();
-                    //_objListaFacilidades = (List<Facilidades>)_unaTerminal.ListaFacilidades;
                     this.ActivoActualizacion();
                 }
             }
@@ -114,7 +111,6 @@ namespace AppWinAdministracion
                 _unaTerminal.Codigo = TBCodigo.Text.Trim();
                 _unaTerminal.Pais = CBPais.Text;
                 _unaTerminal.Ciudad = TBCiudad.Text.Trim();
-                //_unaTerminal.ListaFacilidades = (List<Facilidades>)_objListaFacilidades;
 
                 new AppWinAdministracion.WSTerminalRef.WSTerminal().Alta_Terminal(_unaTerminal);
                 LblError.Text = "Terminal dada de alta con éxito";
@@ -142,12 +138,9 @@ namespace AppWinAdministracion
         private void BtnAgregar_Click(object sender, EventArgs e)
         {
             if (TBFacilidad.Text != "")
-            {   
-                Facilidades _unaFacilidad = new Facilidades();
-                _unaFacilidad.Facilidad = TBFacilidad.Text.Trim();
+            {
+                _objListaFacilidades.Add(TBFacilidad.Text.Trim());
                 
-                _objListaFacilidades.Add(_unaFacilidad);
-
                 TBFacilidad.Text = "";
                 LBFacilidades.DataSource = _objListaFacilidades;
                 LBFacilidades.DisplayMember = "Facilidad";
