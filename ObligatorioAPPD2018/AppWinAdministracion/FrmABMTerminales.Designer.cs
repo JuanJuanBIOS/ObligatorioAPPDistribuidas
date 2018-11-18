@@ -182,7 +182,6 @@
             this.CBPais.Enabled = false;
             this.CBPais.FormattingEnabled = true;
             this.CBPais.Items.AddRange(new object[] {
-            "",
             "Argentina",
             "Brasil",
             "Paraguay",

@@ -9,8 +9,8 @@ namespace ConsolaPrueba
     {
         static void Main(string[] args)
         {
-            EntidadesCompartidas.Companias C = new EntidadesCompartidas.Companias("Compania", "Direccion", "tel");
-            Persistencia.FabricaPersistencia.getPersistenciaCompania().Alta_Compania(C);
+            //EntidadesCompartidas.Companias C = new EntidadesCompartidas.Companias("Compania", "Direccion", "tel");
+            Persistencia.FabricaPersistencia.getPersistenciaTerminal().Buscar_Terminal("DUR");
         }
     }
 }

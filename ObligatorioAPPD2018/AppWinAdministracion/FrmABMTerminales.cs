@@ -30,7 +30,7 @@ namespace AppWinAdministracion
             BtnModificar.Enabled = false;
 
             TBCodigo.Text = "";
-            CBPais.SelectedIndex = 0;
+            CBPais.SelectedIndex = -1;
             TBCiudad.Text = "";
             TBFacilidad.Text = "";
             LBFacilidades.Items.Clear();
@@ -41,6 +41,7 @@ namespace AppWinAdministracion
             TBFacilidad.Enabled = false;
             BtnAgregar.Enabled = false;
             BtnQuitar.Enabled = false;
+            //LBFacilidades.Enabled = false;
 
             TBCodigo.Focus();
 
@@ -78,7 +79,7 @@ namespace AppWinAdministracion
             BtnBaja.Enabled = false;
             BtnModificar.Enabled = false;
 
-            CBPais.SelectedIndex = 0;
+            CBPais.SelectedIndex = -1;
             TBCiudad.Text = "";
             TBFacilidad.Text = "";
 

@@ -34,6 +34,7 @@ public class WSTerminal : System.Web.Services.WebService
         _NodoDetalle.InnerText = ex.Message;
         _NodoError.AppendChild(_NodoDetalle);
 
+        //SoapException _MiEx = new SoapException("Error WS", SoapException.ClientFaultCode, Context.Request.Url.AbsoluteUri, _NodoError);
         SoapException _MiEx = new SoapException("Error WS", SoapException.ClientFaultCode, Context.Request.Url.AbsoluteUri, _NodoError);
         throw _MiEx;
     }

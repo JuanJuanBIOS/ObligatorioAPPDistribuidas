@@ -24,9 +24,11 @@ namespace AppWinAdministracion
             _EmpLogueado = pEmp;
         }
 
-        private void BtnABMViajes_Click(object sender, EventArgs e)
+        private void BtnABMCompanias_Click(object sender, EventArgs e)
         {
-            
+            Form _unForm = new FrmABMCompanias();
+            _unForm.ShowDialog();
+
         }
 
         private void BtnABMTerminales_Click(object sender, EventArgs e)
@@ -36,11 +38,17 @@ namespace AppWinAdministracion
 
         }
 
-        private void BtnABMCompanias_Click(object sender, EventArgs e)
-        {
-            Form _unForm = new FrmABMCompanias();
-            _unForm.ShowDialog();
 
+        private void BtnABMNacionales_Click(object sender, EventArgs e)
+        {
+            Form _unForm = new FrmABMNacionales(_EmpLogueado);
+            _unForm.ShowDialog();
+        }
+
+        private void BtnABMInternacionales_Click(object sender, EventArgs e)
+        {
+            Form _unForm = new FrmABMNacionales(_EmpLogueado);
+            _unForm.ShowDialog();
         }
     }
 }

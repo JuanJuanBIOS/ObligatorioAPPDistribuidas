@@ -169,7 +169,6 @@
             // TBNumero
             // 
             this.TBNumero.Location = new System.Drawing.Point(111, 59);
-            this.TBNumero.MaxLength = 3;
             this.TBNumero.Name = "TBNumero";
             this.TBNumero.Size = new System.Drawing.Size(172, 20);
             this.TBNumero.TabIndex = 2;
@@ -192,6 +191,7 @@
             // CBTerminal
             // 
             this.CBTerminal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBTerminal.Enabled = false;
             this.CBTerminal.FormattingEnabled = true;
             this.CBTerminal.Location = new System.Drawing.Point(111, 121);
             this.CBTerminal.Name = "CBTerminal";
@@ -208,6 +208,7 @@
             // 
             // TBAsientos
             // 
+            this.TBAsientos.Enabled = false;
             this.TBAsientos.Location = new System.Drawing.Point(111, 160);
             this.TBAsientos.Name = "TBAsientos";
             this.TBAsientos.Size = new System.Drawing.Size(172, 20);
@@ -224,6 +225,7 @@
             // 
             // TBParadas
             // 
+            this.TBParadas.Enabled = false;
             this.TBParadas.Location = new System.Drawing.Point(111, 200);
             this.TBParadas.Name = "TBParadas";
             this.TBParadas.Size = new System.Drawing.Size(172, 20);
@@ -231,6 +233,7 @@
             // 
             // DTPFechaPartida
             // 
+            this.DTPFechaPartida.Enabled = false;
             this.DTPFechaPartida.Location = new System.Drawing.Point(484, 59);
             this.DTPFechaPartida.Name = "DTPFechaPartida";
             this.DTPFechaPartida.Size = new System.Drawing.Size(200, 20);
@@ -238,6 +241,7 @@
             // 
             // CBHoraPartida
             // 
+            this.CBHoraPartida.Enabled = false;
             this.CBHoraPartida.FormattingEnabled = true;
             this.CBHoraPartida.Items.AddRange(new object[] {
             "00",
@@ -272,6 +276,7 @@
             // 
             // CBMinutosPartida
             // 
+            this.CBMinutosPartida.Enabled = false;
             this.CBMinutosPartida.FormattingEnabled = true;
             this.CBMinutosPartida.Items.AddRange(new object[] {
             "00",
@@ -466,6 +471,7 @@
             // 
             // CBHoraArribo
             // 
+            this.CBHoraArribo.Enabled = false;
             this.CBHoraArribo.FormattingEnabled = true;
             this.CBHoraArribo.Items.AddRange(new object[] {
             "00",
@@ -500,6 +506,7 @@
             // 
             // DTPFechaArribo
             // 
+            this.DTPFechaArribo.Enabled = false;
             this.DTPFechaArribo.Location = new System.Drawing.Point(484, 126);
             this.DTPFechaArribo.Name = "DTPFechaArribo";
             this.DTPFechaArribo.Size = new System.Drawing.Size(200, 20);

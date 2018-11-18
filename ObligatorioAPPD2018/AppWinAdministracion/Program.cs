@@ -15,10 +15,11 @@ namespace AppWinAdministracion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmABMNacionales());
+            Application.Run(new FrmLogueo());
             //FrmABMCompanias
             //FrmABMTerminales
             //FrmABMNacionales
+            //FrmLogueo
         }
     }
 }
