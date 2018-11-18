@@ -88,6 +88,7 @@
             this.BtnBaja.Size = new System.Drawing.Size(23, 22);
             this.BtnBaja.Text = "toolStripButton2";
             this.BtnBaja.ToolTipText = "Eliminar";
+            this.BtnBaja.Click += new System.EventHandler(this.BtnBaja_Click);
             // 
             // BtnModificar
             // 
@@ -99,6 +100,7 @@
             this.BtnModificar.Size = new System.Drawing.Size(23, 22);
             this.BtnModificar.Text = "toolStripButton3";
             this.BtnModificar.ToolTipText = "Modificar";
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
             // 
             // BtnDeshacer
             // 

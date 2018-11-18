@@ -195,7 +195,7 @@ namespace AppWinAdministracion
         {
             try
             {
-                _objCompania.Nombre = TBNombre.Text.Trim();
+                //_objCompania.Nombre = TBNombre.Text.Trim();
                 _objCompania.Direccion = TBDireccion.Text.Trim();
                 _objCompania.Telefono = TBTel.Text.Trim();
 

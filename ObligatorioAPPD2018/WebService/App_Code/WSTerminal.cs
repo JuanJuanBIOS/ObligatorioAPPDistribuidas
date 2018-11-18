@@ -38,6 +38,8 @@ public class WSTerminal : System.Web.Services.WebService
         throw _MiEx;
     }
 
+    [WebMethod]
+    public void ParaPoderSerializar(Nacionales unNac, Internacionales unInter) { }
 
     #region LogicaCompania
 

@@ -34,7 +34,6 @@ namespace AppWinAdministracion
             TBCiudad.Text = "";
             TBFacilidad.Text = "";
             LBFacilidades.Items.Clear();
-            TBCodigo.Focus();
 
             TBCodigo.Enabled = true;
             CBPais.Enabled = false;
@@ -79,7 +78,7 @@ namespace AppWinAdministracion
             BtnBaja.Enabled = false;
             BtnModificar.Enabled = false;
 
-            CBPais.Text = "";
+            CBPais.SelectedIndex = 0;
             TBCiudad.Text = "";
             TBFacilidad.Text = "";
 
@@ -202,78 +201,76 @@ namespace AppWinAdministracion
             }
         }
 
+        private void BtnBaja_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                new AppWinAdministracion.WSTerminalRef.WSTerminal().Eliminar_Terminal(_objTerminal);
+                LblError.Text = "Terminal eliminada con éxito";
+
+                this.ActivoPorDefecto();
+            }
+
+            catch (System.Web.Services.Protocols.SoapException ex)
+            {
+                if (ex.Detail.InnerText.Length > 80)
+                    LblError.Text = ex.Detail.InnerText.Substring(0, 80);
+                else
+                    LblError.Text = ex.Detail.InnerText;
+            }
+
+            catch (Exception ex)
+            {
+                if (ex.Message.Length > 80)
+                    LblError.Text = ex.Message.Substring(0, 80);
+                else
+                    LblError.Text = ex.Message;
+            }
+        }
+
+        private void BtnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _objTerminal.Pais = CBPais.Text;
+                _objTerminal.Ciudad = TBCiudad.Text.Trim();
+
+                List<string> _listaFacilidades = new List<string>();
+                foreach (string unaFacilidad in LBFacilidades.Items)
+                {
+                    _listaFacilidades.Add(unaFacilidad);
+                }
+
+                _objTerminal.ListaFacilidades = _listaFacilidades.ToArray();
+
+                new AppWinAdministracion.WSTerminalRef.WSTerminal().Modificar_Terminal(_objTerminal);
+                LblError.Text = "Terminal modificada con éxito";
+
+                this.ActivoPorDefecto();
+            }
+
+            catch (System.Web.Services.Protocols.SoapException ex)
+            {
+                if (ex.Detail.InnerText.Length > 80)
+                    LblError.Text = ex.Detail.InnerText.Substring(0, 80);
+                else
+                    LblError.Text = ex.Detail.InnerText;
+            }
+
+            catch (Exception ex)
+            {
+                if (ex.Message.Length > 80)
+                    LblError.Text = ex.Message.Substring(0, 80);
+                else
+                    LblError.Text = ex.Message;
+            }
+        }
+
+
         private void BtnDeshacer_Click(object sender, EventArgs e)
         {
             _objTerminal = null;
             this.ActivoPorDefecto();
         }
-
-
-
-
-    //    private void BtnBaja_Click(object sender, EventArgs e)
-    //    {
-    //        try
-    //        {
-    //            new AppWinAdministracion.WSTerminalRef.WSTerminal().Eliminar_Compania(_objCompania);
-    //            LblError.Text = "Compañía eliminada con éxito";
-
-    //            this.ActivoPorDefecto();
-    //        }
-
-    //        catch (System.Web.Services.Protocols.SoapException ex)
-    //        {
-    //            if (ex.Detail.InnerText.Length > 80)
-    //                LblError.Text = ex.Detail.InnerText.Substring(0, 80);
-    //            else
-    //                LblError.Text = ex.Detail.InnerText;
-    //        }
-
-    //        catch (Exception ex)
-    //        {
-    //            if (ex.Message.Length > 80)
-    //                LblError.Text = ex.Message.Substring(0, 80);
-    //            else
-    //                LblError.Text = ex.Message;
-    //        }
-    //    }
-
-
-    //    private void BtnModificar_Click(object sender, EventArgs e)
-    //    {
-    //        try
-    //        {
-    //            _objCompania.Nombre = TBNombre.Text.Trim();
-    //            _objCompania.Direccion = TBDireccion.Text.Trim();
-    //            _objCompania.Telefono = TBTel.Text.Trim();
-
-    //            new AppWinAdministracion.WSTerminalRef.WSTerminal().Modificar_Compania(_objCompania);
-    //            LblError.Text = "Compañía modificada con éxito";
-
-    //            this.ActivoPorDefecto();
-    //        }
-
-    //        catch (System.Web.Services.Protocols.SoapException ex)
-    //        {
-    //            if (ex.Detail.InnerText.Length > 80)
-    //                LblError.Text = ex.Detail.InnerText.Substring(0, 80);
-    //            else
-    //                LblError.Text = ex.Detail.InnerText;
-    //        }
-
-    //        catch (Exception ex)
-    //        {
-    //            if (ex.Message.Length > 80)
-    //                LblError.Text = ex.Message.Substring(0, 80);
-    //            else
-    //                LblError.Text = ex.Message;
-    //        }
-    //    }
-
-
-    //    private void BtnDeshacer_Click(object sender, EventArgs e)
-    //    {
-    //        this.ActivoPorDefecto();
-    //    }
     }
 }
