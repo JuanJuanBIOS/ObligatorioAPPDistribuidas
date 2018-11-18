@@ -32,6 +32,7 @@
             this.LblContraseña = new System.Windows.Forms.Label();
             this.TBCedula = new System.Windows.Forms.TextBox();
             this.TBContraseña = new System.Windows.Forms.TextBox();
+            this.BtnLogin = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblCedula
@@ -57,8 +58,7 @@
             this.TBCedula.Location = new System.Drawing.Point(102, 4);
             this.TBCedula.Name = "TBCedula";
             this.TBCedula.Size = new System.Drawing.Size(100, 20);
-            this.TBCedula.TabIndex = 2;
-            this.TBCedula.Validating += new System.ComponentModel.CancelEventHandler(this.TBCedula_Validating);
+            this.TBCedula.TabIndex = 1;
             // 
             // TBContraseña
             // 
@@ -68,16 +68,27 @@
             this.TBContraseña.TabIndex = 2;
             this.TBContraseña.UseSystemPasswordChar = true;
             // 
+            // BtnLogin
+            // 
+            this.BtnLogin.Location = new System.Drawing.Point(180, 77);
+            this.BtnLogin.Name = "BtnLogin";
+            this.BtnLogin.Size = new System.Drawing.Size(75, 23);
+            this.BtnLogin.TabIndex = 3;
+            this.BtnLogin.Text = "Login";
+            this.BtnLogin.UseVisualStyleBackColor = true;
+            this.BtnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
+            // 
             // ControlLogueo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.BtnLogin);
             this.Controls.Add(this.TBContraseña);
             this.Controls.Add(this.TBCedula);
             this.Controls.Add(this.LblContraseña);
             this.Controls.Add(this.LblCedula);
             this.Name = "ControlLogueo";
-            this.Size = new System.Drawing.Size(218, 66);
+            this.Size = new System.Drawing.Size(282, 119);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,5 +100,6 @@
         private System.Windows.Forms.Label LblContraseña;
         private System.Windows.Forms.TextBox TBCedula;
         private System.Windows.Forms.TextBox TBContraseña;
+        private System.Windows.Forms.Button BtnLogin;
     }
 }
