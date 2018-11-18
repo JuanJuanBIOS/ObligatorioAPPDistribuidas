@@ -7,9 +7,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls.WebParts;
 
-using EntidadesCompartidas;
-using Logica.Interfaces;
-using Logica;
+using WSTerminalRef;
+
 
 public partial class _Default : System.Web.UI.Page
 {
@@ -21,19 +20,34 @@ public partial class _Default : System.Web.UI.Page
 
             try
             {
-                //Obtengo lista de terminales y lo guardo en el session
-                ILogicaTerminales FTerminal = FabricaLogica.getLogicaTerminal();
-                List<Terminales> ListaTerminales = FTerminal.Listar_Todos_Terminales();
-                Session["Terminales"] = ListaTerminales;
+                ////Obtengo lista de terminales y lo guardo en el session
+                //ILogicaTerminales FTerminal = FabricaLogica.getLogicaTerminal();
+                //List<WSTerminal.Terminales> ListaTerminales = FTerminal.Listar_Todos_Terminales();
+                //Session["Terminales"] = ListaTerminales;
 
                 //Obtengo lista de viajes y lo guardo en el session
-                ILogicaViajes FViaje = FabricaLogica.getLogicaViaje();
-                List<Viajes> ListaViajes = FViaje.Listar_Viajes();
+                List<WSTerminalRef.Viajes> ListaViajes = new WSTerminalRef.WSTerminal().Listar_Viajes().ToList<Viajes>();
                 Session["ListaViajes"] = ListaViajes;
 
-                //Obtengo la lista de companias y lo guardo en el session
-                ILogicaCompania FCompania = FabricaLogica.getLogicaCompania();
-                List<Companias> ListaCompanias = FCompania.Listar_Todos_Companias();
+                //Obtengo lista de terminales en mis viajes usando LinQ
+                List<Terminales> ListaTerminales = (from unViaje in (List<Viajes>)Session["ListaViajes"]
+                                                    select unViaje.Terminal).Distinct().ToList<Terminales>();
+
+
+
+
+                //List<Viajes> viajesfiltrados = (from unViaje in (List<Viajes>)Session["ListaViajes"]
+                //                            where unViaje.Terminal.Codigo == DDLTerminal.SelectedValue
+                //                            && unViaje.Fecha_partida >= DesFechaPart
+                //                            && unViaje.Fecha_partida <= Convert.ToDateTime(HasFechaPart)
+                //                            select unViaje).ToList<Viajes>();
+
+
+                Session["Terminales"] = ListaTerminales;
+
+                //Obtengo lista de Companias en mis viajes usando LinQ
+                List<Companias> ListaCompanias = (from unViaje in (List<Viajes>)Session["ListaViajes"]
+                                                    select unViaje.Compania).Distinct().ToList<Companias>();
                 Session["Companias"] = ListaCompanias;
 
                 //Predefino los valores en los dropdown lists
