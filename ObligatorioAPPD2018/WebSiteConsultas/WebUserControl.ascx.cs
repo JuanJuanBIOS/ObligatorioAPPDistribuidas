@@ -83,7 +83,8 @@ public partial class WebUserControl : System.Web.UI.UserControl
 
 
         LBFacilidadesTer.DataSource = _viaje.Terminal.ListaFacilidades;
-        LBFacilidadesTer.DataTextField = "Facilidad";            
+        //No hay que evaluar la columna ya que ya viene como listado 
+        //LBFacilidadesTer.DataTextField = "Facilidad";            
         LBFacilidadesTer.DataBind();
     }
 }
