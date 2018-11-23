@@ -343,48 +343,5 @@ namespace Persistencia
 
             return ListaTerminales;
         }
-
-        public List<Terminales> Listar_Todos_Terminales()
-        {
-            SqlConnection oConexion = new SqlConnection(Conexion.STR);
-            SqlCommand oComando = new SqlCommand("Listar_Terminales", oConexion);
-            oComando.CommandType = CommandType.StoredProcedure;
-
-            List<Terminales> ListaTerminales = new List<Terminales>();
-
-            try
-            {
-                oConexion.Open();
-                SqlDataReader oReader = oComando.ExecuteReader();
-
-                if (oReader.HasRows)
-                {
-                    while (oReader.Read())
-                    {
-                        Terminales Ter = BuscarTodos_Terminal(oReader["codigo"].ToString());
-                        ListaTerminales.Add(Ter);
-                    }
-                }
-
-                oReader.Close();
-            }
-
-            catch (SqlException)
-            {
-                throw new Exception("La base de datos no se encuentra disponible. Contacte al administrador.");
-            }
-
-            catch (Exception ex)
-            {
-                throw new Exception("Problemas con la base de datos: " + ex.Message);
-            }
-
-            finally
-            {
-                oConexion.Close();
-            }
-
-            return ListaTerminales;
-        }
     }
 }

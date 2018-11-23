@@ -18,6 +18,5 @@ namespace Logica.Interfaces
 
         List<Terminales> Listar_Terminales();
 
-        List<Terminales> Listar_Todos_Terminales();
     }
 }
