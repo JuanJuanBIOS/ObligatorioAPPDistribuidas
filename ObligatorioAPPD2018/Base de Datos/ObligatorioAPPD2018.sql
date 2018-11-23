@@ -977,8 +977,20 @@ BEGIN
 	WHERE Viajes.fecha_partida> GETDATE()
 END
 GO
--- Prueba Listar_ViajesNacionales
+-- Prueba Listar_Viajes_Nacionales
 -- -----------------------------------------------------------------------------------------------
+-- -----------------------------------------------------------------------------------------------
+-- SE CREA PROCEDIMIENTO PARA LISTAR TODOS LOS VIAJES NACIONALES
+CREATE PROCEDURE Listar_Todos_Viajes_Nacionales
+AS
+BEGIN
+	SELECT Viajes.*, Nacionales.paradas FROM Viajes INNER JOIN Nacionales 
+	ON Viajes.numero = Nacionales.numero
+END
+GO
+-- Prueba Listar_Todos_Viajes_Nacionales
+-- -----------------------------------------------------------------------------------------------
+
 
 -- -----------------------------------------------------------------------------------------------
 -- SE CREA PROCEDIMIENTO PARA LISTAR VIAJES INTERNACIONALES
@@ -990,9 +1002,19 @@ BEGIN
 	WHERE Viajes.fecha_partida> GETDATE()
 END
 GO
--- Prueba Listar_ViajesInternacionales
+-- Prueba Listar_Viajes_Internacionales
 -- -----------------------------------------------------------------------------------------------
-
+-- -----------------------------------------------------------------------------------------------
+-- SE CREA PROCEDIMIENTO PARA LISTAR TODOS VIAJES INTERNACIONALES
+CREATE PROCEDURE Listar_Todos_Viajes_Internacionales
+AS
+BEGIN
+	SELECT Viajes.*, Internacionales.servicio, Internacionales.documentacion 
+	FROM Viajes INNER JOIN Internacionales ON Viajes.numero = Internacionales.numero
+END
+GO
+-- Prueba Listar_Todos_Viajes_Internacionales
+-- -----------------------------------------------------------------------------------------------
 
 
 
