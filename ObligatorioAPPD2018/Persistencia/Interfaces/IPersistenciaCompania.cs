@@ -10,8 +10,6 @@ namespace Persistencia.Interfaces
     {
         Companias Buscar_Compania(string pNombre);
 
-        Companias BuscarTodos_Compania(string pNombre);
-
         void Alta_Compania(Companias C);
 
         void Eliminar_Compania(Companias C);

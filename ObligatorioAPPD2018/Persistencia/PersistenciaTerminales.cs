@@ -78,7 +78,7 @@ namespace Persistencia
             return unaTer;
         }
 
-        public Terminales BuscarTodos_Terminal(string pCodTerminal)
+        internal Terminales BuscarTodos_Terminal(string pCodTerminal)
         {
             SqlConnection oConexion = new SqlConnection(Conexion.STR);
             SqlCommand oComando = new SqlCommand("Buscar_Terminal", oConexion);

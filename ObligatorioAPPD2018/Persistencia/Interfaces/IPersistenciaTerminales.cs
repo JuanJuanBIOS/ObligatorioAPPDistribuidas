@@ -10,8 +10,6 @@ namespace Persistencia.Interfaces
     {
         Terminales Buscar_Terminal(string pCodTerminal);
 
-        Terminales BuscarTodos_Terminal(string pCodTerminal);
-
         void Alta_Terminal(Terminales pTemrinal);
 
         void Eliminar_Terminal(Terminales pTemrinal);

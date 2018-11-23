@@ -76,7 +76,7 @@ namespace Persistencia
             return unaComp;
         }
 
-        public Companias BuscarTodos_Compania(string pNombre)
+        internal Companias BuscarTodos_Compania(string pNombre)
         {
             Companias unaComp = null;
 

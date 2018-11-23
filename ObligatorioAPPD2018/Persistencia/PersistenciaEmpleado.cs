@@ -126,7 +126,7 @@ namespace Persistencia
             return unEmp;
         }
 
-        public Empleados BuscarTodos_Empleado(string pCedula)
+        internal Empleados BuscarTodos_Empleado(string pCedula)
         {
             SqlConnection oConexion = new SqlConnection(Conexion.STR);
             SqlCommand oComando = new SqlCommand("BuscarTodos_Empleado", oConexion);
