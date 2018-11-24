@@ -53,8 +53,8 @@ namespace AppWinAdministracion
 
         private void BtnABMEmpleados_Click(object sender, EventArgs e)
         {
-            //Form _unForm = new FrmABMEmpleados(_EmpLogueado);
-            //_unForm.ShowDialog();
+            Form _unForm = new FrmABMEmpleados(_EmpLogueado);
+            _unForm.ShowDialog();
         }
     }
 }

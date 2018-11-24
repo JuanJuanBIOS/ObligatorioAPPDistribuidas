@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.BarraDeHerramientas = new System.Windows.Forms.ToolStrip();
+            this.BtnAlta = new System.Windows.Forms.ToolStripButton();
+            this.BtnBaja = new System.Windows.Forms.ToolStripButton();
+            this.BtnModificar = new System.Windows.Forms.ToolStripButton();
+            this.BtnDeshacer = new System.Windows.Forms.ToolStripButton();
             this.BarraDeEstado = new System.Windows.Forms.StatusStrip();
             this.LblError = new System.Windows.Forms.ToolStripStatusLabel();
             this.LblNumero = new System.Windows.Forms.Label();
@@ -54,10 +58,6 @@
             this.CBMinutosArribo = new System.Windows.Forms.ComboBox();
             this.CBHoraArribo = new System.Windows.Forms.ComboBox();
             this.DTPFechaArribo = new System.Windows.Forms.DateTimePicker();
-            this.BtnAlta = new System.Windows.Forms.ToolStripButton();
-            this.BtnBaja = new System.Windows.Forms.ToolStripButton();
-            this.BtnModificar = new System.Windows.Forms.ToolStripButton();
-            this.BtnDeshacer = new System.Windows.Forms.ToolStripButton();
             this.CBServicio = new System.Windows.Forms.CheckBox();
             this.LblDocumentacion = new System.Windows.Forms.Label();
             this.TBDocumentacion = new System.Windows.Forms.TextBox();
@@ -78,6 +78,53 @@
             this.BarraDeHerramientas.Size = new System.Drawing.Size(816, 25);
             this.BarraDeHerramientas.TabIndex = 0;
             this.BarraDeHerramientas.Text = "toolStrip1";
+            // 
+            // BtnAlta
+            // 
+            this.BtnAlta.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BtnAlta.Enabled = false;
+            this.BtnAlta.Image = global::AppWinAdministracion.Properties.Resources.nuevo;
+            this.BtnAlta.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnAlta.Name = "BtnAlta";
+            this.BtnAlta.Size = new System.Drawing.Size(23, 22);
+            this.BtnAlta.Text = "toolStripButton1";
+            this.BtnAlta.ToolTipText = "Alta";
+            this.BtnAlta.Click += new System.EventHandler(this.BtnAlta_Click);
+            // 
+            // BtnBaja
+            // 
+            this.BtnBaja.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BtnBaja.Enabled = false;
+            this.BtnBaja.Image = global::AppWinAdministracion.Properties.Resources.eliminar;
+            this.BtnBaja.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnBaja.Name = "BtnBaja";
+            this.BtnBaja.Size = new System.Drawing.Size(23, 22);
+            this.BtnBaja.Text = "toolStripButton2";
+            this.BtnBaja.ToolTipText = "Eliminar";
+            this.BtnBaja.Click += new System.EventHandler(this.BtnBaja_Click);
+            // 
+            // BtnModificar
+            // 
+            this.BtnModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BtnModificar.Enabled = false;
+            this.BtnModificar.Image = global::AppWinAdministracion.Properties.Resources.modificar;
+            this.BtnModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnModificar.Name = "BtnModificar";
+            this.BtnModificar.Size = new System.Drawing.Size(23, 22);
+            this.BtnModificar.Text = "toolStripButton3";
+            this.BtnModificar.ToolTipText = "Modificar";
+            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
+            // 
+            // BtnDeshacer
+            // 
+            this.BtnDeshacer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.BtnDeshacer.Image = global::AppWinAdministracion.Properties.Resources.cancelar;
+            this.BtnDeshacer.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.BtnDeshacer.Name = "BtnDeshacer";
+            this.BtnDeshacer.Size = new System.Drawing.Size(23, 22);
+            this.BtnDeshacer.Text = "toolStripButton4";
+            this.BtnDeshacer.ToolTipText = "Deshacer";
+            this.BtnDeshacer.Click += new System.EventHandler(this.BtnDeshacer_Click);
             // 
             // BarraDeEstado
             // 
@@ -458,53 +505,6 @@
             this.DTPFechaArribo.Size = new System.Drawing.Size(200, 20);
             this.DTPFechaArribo.TabIndex = 20;
             // 
-            // BtnAlta
-            // 
-            this.BtnAlta.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BtnAlta.Enabled = false;
-            this.BtnAlta.Image = global::AppWinAdministracion.Properties.Resources.nuevo;
-            this.BtnAlta.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnAlta.Name = "BtnAlta";
-            this.BtnAlta.Size = new System.Drawing.Size(23, 22);
-            this.BtnAlta.Text = "toolStripButton1";
-            this.BtnAlta.ToolTipText = "Alta";
-            this.BtnAlta.Click += new System.EventHandler(this.BtnAlta_Click);
-            // 
-            // BtnBaja
-            // 
-            this.BtnBaja.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BtnBaja.Enabled = false;
-            this.BtnBaja.Image = global::AppWinAdministracion.Properties.Resources.eliminar;
-            this.BtnBaja.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnBaja.Name = "BtnBaja";
-            this.BtnBaja.Size = new System.Drawing.Size(23, 22);
-            this.BtnBaja.Text = "toolStripButton2";
-            this.BtnBaja.ToolTipText = "Eliminar";
-            this.BtnBaja.Click += new System.EventHandler(this.BtnBaja_Click);
-            // 
-            // BtnModificar
-            // 
-            this.BtnModificar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BtnModificar.Enabled = false;
-            this.BtnModificar.Image = global::AppWinAdministracion.Properties.Resources.modificar;
-            this.BtnModificar.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnModificar.Name = "BtnModificar";
-            this.BtnModificar.Size = new System.Drawing.Size(23, 22);
-            this.BtnModificar.Text = "toolStripButton3";
-            this.BtnModificar.ToolTipText = "Modificar";
-            this.BtnModificar.Click += new System.EventHandler(this.BtnModificar_Click);
-            // 
-            // BtnDeshacer
-            // 
-            this.BtnDeshacer.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.BtnDeshacer.Image = global::AppWinAdministracion.Properties.Resources.cancelar;
-            this.BtnDeshacer.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.BtnDeshacer.Name = "BtnDeshacer";
-            this.BtnDeshacer.Size = new System.Drawing.Size(23, 22);
-            this.BtnDeshacer.Text = "toolStripButton4";
-            this.BtnDeshacer.ToolTipText = "Deshacer";
-            this.BtnDeshacer.Click += new System.EventHandler(this.BtnDeshacer_Click);
-            // 
             // CBServicio
             // 
             this.CBServicio.AutoSize = true;
@@ -528,6 +528,7 @@
             // 
             this.TBDocumentacion.Enabled = false;
             this.TBDocumentacion.Location = new System.Drawing.Point(484, 201);
+            this.TBDocumentacion.MaxLength = 200;
             this.TBDocumentacion.Multiline = true;
             this.TBDocumentacion.Name = "TBDocumentacion";
             this.TBDocumentacion.Size = new System.Drawing.Size(200, 91);

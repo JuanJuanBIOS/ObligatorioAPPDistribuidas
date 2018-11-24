@@ -33,13 +33,13 @@ namespace EntidadesCompartidas
                     }
                     else
                     {
-                        throw new Exception("El número de viaje ingresado no es válido");
+                        throw new Exception("ERROR: El número de viaje ingresado no es válido");
                     }
                 }
 
                 catch
                 {
-                    throw new Exception("El número de viaje ingresado no es válido");
+                    throw new Exception("ERROR: El número de viaje ingresado no es válido");
                 }
             }
         }
@@ -56,7 +56,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("La compañía ingresada no es válida");
+                    throw new Exception("ERROR: La compañía ingresada no es válida");
                 }
             }
         }
@@ -73,7 +73,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("La terminal ingresada no es válida");
+                    throw new Exception("ERROR: La terminal ingresada no es válida");
                 }
             }
         }
@@ -100,7 +100,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("La fecha de arribo no puede ser anterior a la fecha de partida");
+                    throw new Exception("ERROR: La fecha de arribo no puede ser anterior a la fecha de partida");
                 }
             }
         }
@@ -114,7 +114,7 @@ namespace EntidadesCompartidas
                 if (value > 0)
                     _asientos = value;
                 else
-                    throw new Exception("El número de asientos no es válido");
+                    throw new Exception("ERROR: El número de asientos no es válido");
             }
         }
 
@@ -130,7 +130,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("El empleado ingresado no es válido");
+                    throw new Exception("ERROR: El empleado ingresado no es válido");
                 }
             }
         }

@@ -156,10 +156,8 @@ namespace AppWinAdministracion
 
             catch (System.Web.Services.Protocols.SoapException ex)
             {
-                if (ex.Detail.InnerText.Length > 80)
-                    LblError.Text = ex.Detail.InnerText.Substring(0, 80);
-                else
-                    LblError.Text = ex.Detail.InnerText;
+                int aux = ex.Message.IndexOf("ERROR: ");
+                LblError.Text = ex.Message.Substring(aux, 80);
             }
 
             catch (Exception ex)
@@ -198,10 +196,8 @@ namespace AppWinAdministracion
 
             catch (System.Web.Services.Protocols.SoapException ex)
             {
-                if (ex.Detail.InnerText.Length > 80)
-                    LblError.Text = ex.Detail.InnerText.Substring(0, 80);
-                else
-                    LblError.Text = ex.Detail.InnerText;
+                int aux = ex.Message.IndexOf("ERROR: ");
+                LblError.Text = ex.Message.Substring(aux, 80);
             }
 
             catch (Exception ex)
@@ -225,10 +221,8 @@ namespace AppWinAdministracion
 
             catch (System.Web.Services.Protocols.SoapException ex)
             {
-                if (ex.Detail.InnerText.Length > 80)
-                    LblError.Text = ex.Detail.InnerText.Substring(0, 80);
-                else
-                    LblError.Text = ex.Detail.InnerText;
+                int aux = ex.Message.IndexOf("ERROR: ");
+                LblError.Text = ex.Message.Substring(aux, 80);
             }
 
             catch (Exception ex)
@@ -266,10 +260,8 @@ namespace AppWinAdministracion
 
             catch (System.Web.Services.Protocols.SoapException ex)
             {
-                if (ex.Detail.InnerText.Length > 80)
-                    LblError.Text = ex.Detail.InnerText.Substring(0, 80);
-                else
-                    LblError.Text = ex.Detail.InnerText;
+                int aux = ex.Message.IndexOf("ERROR: ");
+                LblError.Text = ex.Message.Substring(aux, 80);
             }
 
             catch (Exception ex)

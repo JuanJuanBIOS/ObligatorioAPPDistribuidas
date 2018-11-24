@@ -1,6 +1,6 @@
 ﻿namespace AppWinAdministracion
 {
-    partial class FrmABMCompanias
+    partial class FrmABMEmpleados
     {
         /// <summary>
         /// Required designer variable.
@@ -36,12 +36,12 @@
             this.BtnDeshacer = new System.Windows.Forms.ToolStripButton();
             this.BarraDeEstado = new System.Windows.Forms.StatusStrip();
             this.LblError = new System.Windows.Forms.ToolStripStatusLabel();
+            this.LblCedula = new System.Windows.Forms.Label();
             this.LblNombre = new System.Windows.Forms.Label();
-            this.LblDireccion = new System.Windows.Forms.Label();
-            this.LblTel = new System.Windows.Forms.Label();
+            this.LblPass = new System.Windows.Forms.Label();
+            this.TBCedula = new System.Windows.Forms.TextBox();
             this.TBNombre = new System.Windows.Forms.TextBox();
-            this.TBDireccion = new System.Windows.Forms.TextBox();
-            this.TBTel = new System.Windows.Forms.TextBox();
+            this.TBPass = new System.Windows.Forms.TextBox();
             this.EPTel = new System.Windows.Forms.ErrorProvider(this.components);
             this.BarraDeHerramientas.SuspendLayout();
             this.BarraDeEstado.SuspendLayout();
@@ -57,7 +57,7 @@
             this.BtnDeshacer});
             this.BarraDeHerramientas.Location = new System.Drawing.Point(0, 0);
             this.BarraDeHerramientas.Name = "BarraDeHerramientas";
-            this.BarraDeHerramientas.Size = new System.Drawing.Size(384, 25);
+            this.BarraDeHerramientas.Size = new System.Drawing.Size(369, 25);
             this.BarraDeHerramientas.TabIndex = 0;
             this.BarraDeHerramientas.Text = "toolStrip1";
             // 
@@ -114,7 +114,7 @@
             this.LblError});
             this.BarraDeEstado.Location = new System.Drawing.Point(0, 209);
             this.BarraDeEstado.Name = "BarraDeEstado";
-            this.BarraDeEstado.Size = new System.Drawing.Size(384, 22);
+            this.BarraDeEstado.Size = new System.Drawing.Size(369, 22);
             this.BarraDeEstado.TabIndex = 1;
             this.BarraDeEstado.Text = "statusStrip1";
             // 
@@ -123,79 +123,77 @@
             this.LblError.Name = "LblError";
             this.LblError.Size = new System.Drawing.Size(0, 17);
             // 
+            // LblCedula
+            // 
+            this.LblCedula.AutoSize = true;
+            this.LblCedula.Location = new System.Drawing.Point(35, 62);
+            this.LblCedula.Name = "LblCedula";
+            this.LblCedula.Size = new System.Drawing.Size(46, 13);
+            this.LblCedula.TabIndex = 2;
+            this.LblCedula.Text = "Cédula :";
+            // 
             // LblNombre
             // 
             this.LblNombre.AutoSize = true;
-            this.LblNombre.Location = new System.Drawing.Point(35, 62);
+            this.LblNombre.Location = new System.Drawing.Point(35, 92);
             this.LblNombre.Name = "LblNombre";
             this.LblNombre.Size = new System.Drawing.Size(47, 13);
             this.LblNombre.TabIndex = 2;
             this.LblNombre.Text = "Nombre:";
             // 
-            // LblDireccion
+            // LblPass
             // 
-            this.LblDireccion.AutoSize = true;
-            this.LblDireccion.Location = new System.Drawing.Point(35, 92);
-            this.LblDireccion.Name = "LblDireccion";
-            this.LblDireccion.Size = new System.Drawing.Size(55, 13);
-            this.LblDireccion.TabIndex = 2;
-            this.LblDireccion.Text = "Dirección:";
+            this.LblPass.AutoSize = true;
+            this.LblPass.Location = new System.Drawing.Point(35, 121);
+            this.LblPass.Name = "LblPass";
+            this.LblPass.Size = new System.Drawing.Size(64, 13);
+            this.LblPass.TabIndex = 2;
+            this.LblPass.Text = "Contraseña:";
             // 
-            // LblTel
+            // TBCedula
             // 
-            this.LblTel.AutoSize = true;
-            this.LblTel.Location = new System.Drawing.Point(35, 121);
-            this.LblTel.Name = "LblTel";
-            this.LblTel.Size = new System.Drawing.Size(52, 13);
-            this.LblTel.TabIndex = 2;
-            this.LblTel.Text = "Teléfono:";
+            this.TBCedula.Location = new System.Drawing.Point(111, 59);
+            this.TBCedula.Name = "TBCedula";
+            this.TBCedula.Size = new System.Drawing.Size(172, 20);
+            this.TBCedula.TabIndex = 3;
+            this.TBCedula.Validating += new System.ComponentModel.CancelEventHandler(this.TBCedula_Validating);
             // 
             // TBNombre
             // 
-            this.TBNombre.Location = new System.Drawing.Point(111, 59);
-            this.TBNombre.MaxLength = 50;
+            this.TBNombre.Location = new System.Drawing.Point(111, 89);
             this.TBNombre.Name = "TBNombre";
             this.TBNombre.Size = new System.Drawing.Size(172, 20);
-            this.TBNombre.TabIndex = 3;
-            this.TBNombre.Validating += new System.ComponentModel.CancelEventHandler(this.TBNombre_Validating);
+            this.TBNombre.TabIndex = 4;
             // 
-            // TBDireccion
+            // TBPass
             // 
-            this.TBDireccion.Location = new System.Drawing.Point(111, 89);
-            this.TBDireccion.MaxLength = 100;
-            this.TBDireccion.Name = "TBDireccion";
-            this.TBDireccion.Size = new System.Drawing.Size(172, 20);
-            this.TBDireccion.TabIndex = 4;
-            // 
-            // TBTel
-            // 
-            this.TBTel.Enabled = false;
-            this.TBTel.Location = new System.Drawing.Point(111, 118);
-            this.TBTel.MaxLength = 20;
-            this.TBTel.Name = "TBTel";
-            this.TBTel.Size = new System.Drawing.Size(172, 20);
-            this.TBTel.TabIndex = 5;
-            this.TBTel.Validating += new System.ComponentModel.CancelEventHandler(this.TBTel_Validating);
+            this.TBPass.Enabled = false;
+            this.TBPass.Location = new System.Drawing.Point(111, 118);
+            this.TBPass.MaxLength = 6;
+            this.TBPass.Name = "TBPass";
+            this.TBPass.Size = new System.Drawing.Size(172, 20);
+            this.TBPass.TabIndex = 5;
+            this.TBPass.UseSystemPasswordChar = true;
             // 
             // EPTel
             // 
             this.EPTel.ContainerControl = this;
             // 
-            // FrmABMCompanias
+            // FrmABMEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 231);
-            this.Controls.Add(this.TBTel);
-            this.Controls.Add(this.TBDireccion);
+            this.ClientSize = new System.Drawing.Size(369, 231);
+            this.Controls.Add(this.TBPass);
             this.Controls.Add(this.TBNombre);
-            this.Controls.Add(this.LblTel);
-            this.Controls.Add(this.LblDireccion);
+            this.Controls.Add(this.TBCedula);
+            this.Controls.Add(this.LblPass);
             this.Controls.Add(this.LblNombre);
+            this.Controls.Add(this.LblCedula);
             this.Controls.Add(this.BarraDeEstado);
             this.Controls.Add(this.BarraDeHerramientas);
-            this.Name = "FrmABMCompanias";
-            this.Text = "Mantenimiento de Companías";
+            this.Name = "FrmABMEmpleados";
+            this.Text = "Mantenimiento de Empleados";
             this.BarraDeHerramientas.ResumeLayout(false);
             this.BarraDeHerramientas.PerformLayout();
             this.BarraDeEstado.ResumeLayout(false);
@@ -215,12 +213,12 @@
         private System.Windows.Forms.ToolStripButton BtnDeshacer;
         private System.Windows.Forms.StatusStrip BarraDeEstado;
         private System.Windows.Forms.ToolStripStatusLabel LblError;
+        private System.Windows.Forms.Label LblCedula;
         private System.Windows.Forms.Label LblNombre;
-        private System.Windows.Forms.Label LblDireccion;
-        private System.Windows.Forms.Label LblTel;
+        private System.Windows.Forms.Label LblPass;
+        private System.Windows.Forms.TextBox TBCedula;
         private System.Windows.Forms.TextBox TBNombre;
-        private System.Windows.Forms.TextBox TBDireccion;
-        private System.Windows.Forms.TextBox TBTel;
+        private System.Windows.Forms.TextBox TBPass;
         private System.Windows.Forms.ErrorProvider EPTel;
     }
 }

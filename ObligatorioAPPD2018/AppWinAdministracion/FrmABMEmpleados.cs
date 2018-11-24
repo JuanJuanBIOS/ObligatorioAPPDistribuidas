@@ -9,20 +9,19 @@ using System.Windows.Forms;
 
 using AppWinAdministracion.WSTerminalRef;
 
-
 namespace AppWinAdministracion
 {
-    public partial class FrmABMCompanias : Form
+    public partial class FrmABMEmpleados : Form
     {
-        //creo atributo que mantiene en memoria el objeto Compania con el cual se esta trabajando
-        
-        private Companias _objCompania = null;
+        private Empleados _EmpLogueado;
 
-        public FrmABMCompanias()
+        private Empleados _objNvoEmpleado = null;
+
+        public FrmABMEmpleados(Empleados pEmp)
         {
             InitializeComponent();
+            _EmpLogueado = pEmp;
         }
-
 
         private void ActivoPorDefecto()
         {
@@ -30,17 +29,17 @@ namespace AppWinAdministracion
             BtnBaja.Enabled = false;
             BtnModificar.Enabled = false;
 
+            TBCedula.Text = "";
             TBNombre.Text = "";
-            TBDireccion.Text = "";
-            TBTel.Text = "";
+            TBPass.Text = "";
 
-            TBNombre.Enabled = true;
-            //TBDireccion.Enabled = false;
-            TBTel.Enabled = false;
+            TBCedula.Enabled = true;
+            //TBNombre.Enabled = false;
+            TBPass.Enabled = false;
 
-            TBNombre.Focus();
+            TBCedula.Focus();
 
-            _objCompania = null;
+            _objNvoEmpleado = null;
         }
 
 
@@ -50,13 +49,13 @@ namespace AppWinAdministracion
             BtnBaja.Enabled = true;
             BtnModificar.Enabled = true;
 
-            TBNombre.Text = _objCompania.Nombre;
-            TBDireccion.Text = _objCompania.Direccion;
-            TBTel.Text = _objCompania.Telefono;
+            TBCedula.Text = _objNvoEmpleado.Cedula;
+            TBNombre.Text = _objNvoEmpleado.Nombre;
+            TBPass.Text = "";
 
-            TBNombre.Enabled = false;
-            TBDireccion.Enabled = true;
-            TBTel.Enabled = true;
+            TBCedula.Enabled = false;
+            TBNombre.Enabled = true;
+            TBPass.Enabled = true;
         }
 
 
@@ -66,29 +65,28 @@ namespace AppWinAdministracion
             BtnBaja.Enabled = false;
             BtnModificar.Enabled = false;
 
-            TBDireccion.Text = "";
-            TBTel.Text = "";
+            TBNombre.Text = "";
+            TBPass.Text = "";
 
-            TBNombre.Enabled = false;
-            TBDireccion.Enabled = true;
-            TBTel.Enabled = true;
+            TBCedula.Enabled = false;
+            TBNombre.Enabled = true;
+            TBPass.Enabled = true;
         }
 
-
-        private void TBNombre_Validating(object sender, CancelEventArgs e)
+        private void TBCedula_Validating(object sender, CancelEventArgs e)
         {
             try
             {
-                Companias _unaCompania = null;
-                _unaCompania = new AppWinAdministracion.WSTerminalRef.WSTerminal().Buscar_Compania(TBNombre.Text);
+                Empleados _unNvoEmpleado = null;
+                _unNvoEmpleado = new AppWinAdministracion.WSTerminalRef.WSTerminal().Buscar_Empleado(TBCedula.Text);
 
-                if (_unaCompania == null)
+                if (_unNvoEmpleado == null)
                 {
                     this.ActivoAgregar();
                 }
                 else
                 {
-                    _objCompania = _unaCompania;
+                    _objNvoEmpleado = _unNvoEmpleado;
                     this.ActivoActualizacion();
                 }
             }
@@ -108,37 +106,17 @@ namespace AppWinAdministracion
             }
         }
 
-
-        private void TBTel_Validating(object sender, CancelEventArgs e)
-        {
-            if (TBNombre.Text != "" && TBTel.Text != "")
-            {
-                try
-                {
-                    Convert.ToInt32(TBTel.Text);
-                    EPTel.Clear();
-                }
-
-                catch
-                {
-                    EPTel.SetError(TBTel, "Sólo se pueden ingresar números");
-                    e.Cancel = true;
-                }
-            }
-        }
-
-
         private void BtnAlta_Click(object sender, EventArgs e)
         {
             try
             {
-                Companias _unaCompania = new Companias();
-                _unaCompania.Nombre = TBNombre.Text.Trim();
-                _unaCompania.Direccion = TBDireccion.Text.Trim();
-                _unaCompania.Telefono = TBTel.Text.Trim();
+                Empleados _unNvoEmpleado = new Empleados();
+                _unNvoEmpleado.Cedula = TBCedula.Text.Trim();
+                _unNvoEmpleado.Nombre = TBNombre.Text.Trim();
+                _unNvoEmpleado.Pass = TBPass.Text.Trim();
 
-                new AppWinAdministracion.WSTerminalRef.WSTerminal().Alta_Compania(_unaCompania);
-                LblError.Text = "Compañía dada de alta con éxito";
+                new AppWinAdministracion.WSTerminalRef.WSTerminal().Alta_Empleado(_unNvoEmpleado);
+                LblError.Text = "Empleado dado de alta con éxito";
 
                 this.ActivoPorDefecto();
             }
@@ -157,43 +135,48 @@ namespace AppWinAdministracion
                     LblError.Text = ex.Message;
             }
         }
-
 
         private void BtnBaja_Click(object sender, EventArgs e)
         {
-            try
+            if (_objNvoEmpleado.Cedula == _EmpLogueado.Cedula)
             {
-                new AppWinAdministracion.WSTerminalRef.WSTerminal().Eliminar_Compania(_objCompania);
-                LblError.Text = "Compañía eliminada con éxito";
-
-                this.ActivoPorDefecto();
+                LblError.Text = "El empleado logueado no se puede eliminar a sí mismo";
             }
-
-            catch (System.Web.Services.Protocols.SoapException ex)
+            else
             {
-                int aux = ex.Message.IndexOf("ERROR: ");
-                LblError.Text = ex.Message.Substring(aux, 80);
-            }
+                try
+                {
+                    new AppWinAdministracion.WSTerminalRef.WSTerminal().Eliminar_Empleado(_objNvoEmpleado);
+                    LblError.Text = "Empleado eliminado con éxito";
 
-            catch (Exception ex)
-            {
-                if (ex.Message.Length > 80)
-                    LblError.Text = ex.Message.Substring(0, 80);
-                else
-                    LblError.Text = ex.Message;
+                    this.ActivoPorDefecto();
+                }
+
+                catch (System.Web.Services.Protocols.SoapException ex)
+                {
+                    int aux = ex.Message.IndexOf("ERROR: ");
+                    LblError.Text = ex.Message.Substring(aux, 80);
+                }
+
+                catch (Exception ex)
+                {
+                    if (ex.Message.Length > 80)
+                        LblError.Text = ex.Message.Substring(0, 80);
+                    else
+                        LblError.Text = ex.Message;
+                }
             }
         }
-
 
         private void BtnModificar_Click(object sender, EventArgs e)
         {
             try
             {
-                _objCompania.Direccion = TBDireccion.Text.Trim();
-                _objCompania.Telefono = TBTel.Text.Trim();
+                _objNvoEmpleado.Nombre = TBNombre.Text.Trim();
+                _objNvoEmpleado.Pass = TBPass.Text.Trim();
 
-                new AppWinAdministracion.WSTerminalRef.WSTerminal().Modificar_Compania(_objCompania);
-                LblError.Text = "Compañía modificada con éxito";
+                new AppWinAdministracion.WSTerminalRef.WSTerminal().Modificar_Empleado(_objNvoEmpleado);
+                LblError.Text = "Empleado modificado con éxito";
 
                 this.ActivoPorDefecto();
             }
@@ -213,10 +196,10 @@ namespace AppWinAdministracion
             }
         }
 
-
         private void BtnDeshacer_Click(object sender, EventArgs e)
         {
             this.ActivoPorDefecto();
         }
+
     }
 }

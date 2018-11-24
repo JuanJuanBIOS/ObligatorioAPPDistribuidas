@@ -71,6 +71,12 @@
     <Compile Include="ControlLogueo.Designer.cs">
       <DependentUpon>ControlLogueo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmABMEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmABMEmpleados.Designer.cs">
+      <DependentUpon>FrmABMEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmABMInternacionales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </Compile>
     <EmbeddedResource Include="ControlLogueo.resx">
       <DependentUpon>ControlLogueo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmABMEmpleados.resx">
+      <DependentUpon>FrmABMEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmABMInternacionales.resx">
       <DependentUpon>FrmABMInternacionales.cs</DependentUpon>
