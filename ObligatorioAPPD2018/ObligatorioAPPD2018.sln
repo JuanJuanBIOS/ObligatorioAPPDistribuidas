@@ -14,6 +14,7 @@ EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "WebService", "WebService\", "{55028AD4-C49E-48BA-B8C6-9EAD55CCB296}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = "{21B48A9C-5049-4B53-859E-70C43954456E}|Persistencia.dll;{828F246D-9F15-48EB-B716-EE6F76E6FEA0}|EntidadesCompartidas.dll;{74738E5F-A119-4323-A2AE-8307289C291A}|Logica.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/WebService"
 		Debug.AspNetCompiler.PhysicalPath = "WebService\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\WebService\"

@@ -95,7 +95,6 @@ namespace Logica
             }
         }
 
-        //Tiene que ser estatico?
         public List<Viajes> Listar_Viajes()
         {
             List<Viajes> _Lista = new List<Viajes>();
@@ -108,5 +107,19 @@ namespace Logica
 
             return _Lista;
         }
+
+        public List<Viajes> Listar_Todos_Viajes()
+        {
+            List<Viajes> _Lista = new List<Viajes>();
+
+            IPersistenciaNacionales Viajes_Nacionales = FabricaPersistencia.getPersistenciaNacionales();
+            _Lista.AddRange(Viajes_Nacionales.Listar_Todos_Viajes_Nac());
+
+            IPersistenciaInternacionales Viajes_Internacionales = FabricaPersistencia.getPersistenciaInternacionales();
+            _Lista.AddRange(Viajes_Internacionales.Listar_Todos_Viajes_Int());
+
+            return _Lista;
+        }
+
     }
 }

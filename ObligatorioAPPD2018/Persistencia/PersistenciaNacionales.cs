@@ -305,5 +305,47 @@ namespace Persistencia
             }
             return _Lista;
         }
+
+        public List<Nacionales> Listar_Todos_Viajes_Nac()
+        {
+            SqlConnection oConexion = new SqlConnection(Conexion.STR);
+            SqlCommand oComando = new SqlCommand("Listar_Todos_Viajes_Nacionales", oConexion);
+            oComando.CommandType = CommandType.StoredProcedure;
+            List<Nacionales> _Lista = new List<Nacionales>();
+            try
+            {
+                oConexion.Open();
+                SqlDataReader _Reader = oComando.ExecuteReader();
+                while (_Reader.Read())
+                {
+                    int _numero = (int)_Reader["numero"];
+                    Companias _compania = PersistenciaCompania.GetInstancia().BuscarTodos_Compania((string)_Reader["compania"]);
+                    Terminales _terminal = PersistenciaTerminales.GetInstancia().BuscarTodos_Terminal((string)_Reader["destino"]);
+                    DateTime _fechapartida = (DateTime)_Reader["fecha_partida"];
+                    DateTime _fechaarribo = (DateTime)_Reader["fecha_arribo"];
+                    int _asientos = (int)_Reader["asientos"];
+                    Empleados _empleado = PersistenciaEmpleado.GetInstancia().BuscarTodos_Empleado((string)_Reader["empleado"]);
+                    int _paradas = (int)_Reader["paradas"];
+                    Nacionales viaje = new Nacionales(_numero, _compania, _terminal, _fechapartida, _fechaarribo, _asientos, _empleado, _paradas);
+                    _Lista.Add(viaje);
+                }
+                _Reader.Close();
+            }
+
+            catch (SqlException)
+            {
+                throw new Exception("La base de datos no se encuentra disponible. Contacte al administrador.");
+            }
+
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            finally
+            {
+                oConexion.Close();
+            }
+            return _Lista;
+        }
     }
 }

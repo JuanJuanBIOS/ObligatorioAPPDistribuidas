@@ -5,9 +5,10 @@ using System.Web;
 using System.Web.Services;
 
 using EntidadesCompartidas;
-using Logica;
 using System.Xml;
 using System.Web.Services.Protocols;
+using Logica;
+using Logica.Interfaces;
 
 /// <summary>
 /// Summary description for WSTerminal
@@ -124,24 +125,6 @@ public class WSTerminal : System.Web.Services.WebService
         return _lista;
     }
 
-    [WebMethod]
-    public List<Companias> Listar_Todos_Companias()
-    {
-        List<Companias> _lista = null;
-        try
-        {
-            _lista = FabricaLogica.getLogicaCompania().Listar_Todos_Companias();
-        }
-
-        catch (Exception ex)
-        {
-            this.GenerarSoapException(ex);
-        }
-
-        return _lista;
-    }
-
-
     #endregion
 
     #region LogicaTerminal
@@ -225,25 +208,7 @@ public class WSTerminal : System.Web.Services.WebService
 
         return _lista;
     }
-
-
-    [WebMethod]
-    public List<Terminales> Listar_Todos_Terminales()
-    {
-        List<Terminales> _lista = null;
-        try
-        {
-            _lista = FabricaLogica.getLogicaTerminal().Listar_Todos_Terminales();
-        }
-
-        catch (Exception ex)
-        {
-            this.GenerarSoapException(ex);
-        }
-
-        return _lista;
-    }
-
+    
     #endregion
 
     #region LogicaViaje
@@ -328,6 +293,54 @@ public class WSTerminal : System.Web.Services.WebService
         return _lista;
     }
 
+    [WebMethod]
+    public List<Viajes> Listar_Todos_Viajes()
+    {
+        List<Viajes> _lista = null;
+        try
+        {
+            _lista = FabricaLogica.getLogicaViaje().Listar_Todos_Viajes();
+            XmlDocument _doc = new XmlDocument();
+            _doc.LoadXml("<?xml version='1.0' encoding ='utf-8' ?> <Viaje> </Viaje>");
+            XmlNode nodoViaje = _doc.CreateNode(XmlNodeType.Element, "Viaje", "");
+
+            foreach (Viajes _viaje in _lista)
+            {
+                
+
+                XmlNode nodoNumero = _doc.CreateNode(XmlNodeType.Element, "Número", "");
+                nodoNumero.InnerXml = _viaje.Numero.ToString();
+                nodoViaje.AppendChild(nodoNumero);
+
+                XmlNode nodoCiudadDestino = _doc.CreateNode(XmlNodeType.Element, "CiudadDestino", "");
+                nodoCiudadDestino.InnerXml = _viaje.Terminal.Ciudad;
+                nodoViaje.AppendChild(nodoCiudadDestino);
+
+                XmlNode nodoPaisDestino = _doc.CreateNode(XmlNodeType.Element, "PaisDestino", "");
+                nodoPaisDestino.InnerXml = _viaje.Terminal.Pais;
+                nodoViaje.AppendChild(nodoPaisDestino);
+
+                XmlNode nodoCompania = _doc.CreateNode(XmlNodeType.Element, "Compania", "");
+                nodoCompania.InnerXml = _viaje.Compania.Nombre;
+                nodoViaje.AppendChild(nodoCompania);
+
+                XmlNode nodoFechaPartida = _doc.CreateNode(XmlNodeType.Element, "FechaPartida", "");
+                nodoFechaPartida.InnerXml = _viaje.Fecha_partida.ToString();
+                nodoViaje.AppendChild(nodoFechaPartida);
+
+                _doc.DocumentElement.AppendChild(nodoViaje);
+            }
+            //return (_doc.OuterXml);
+        }
+
+        catch (Exception ex)
+        {
+            this.GenerarSoapException(ex);
+        }
+
+        return _lista;
+    }
+
     #endregion
 
     #region LogicaEmpleado
@@ -366,25 +379,6 @@ public class WSTerminal : System.Web.Services.WebService
 
         return _unEmpleado;
     }
-
-
-    [WebMethod]
-    public Empleados BuscarTodos_Empleado(string pCedula)
-    {
-        Empleados _unEmpleado = null;
-        try
-        {
-            _unEmpleado = FabricaLogica.getLogicaEmpleado().BuscarTodos_Empleado(pCedula);
-        }
-
-        catch (Exception ex)
-        {
-            this.GenerarSoapException(ex);
-        }
-
-        return _unEmpleado;
-    }
-
 
     [WebMethod]
     public void Alta_Empleado(Empleados unEmpleado)

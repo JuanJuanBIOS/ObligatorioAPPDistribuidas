@@ -95,6 +95,12 @@
     <Compile Include="FrmABMCompanias.Designer.cs">
       <DependentUpon>FrmABMCompanias.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEstadisticas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEstadisticas.Designer.cs">
+      <DependentUpon>FrmEstadisticas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmLogueo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +134,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmABMCompanias.resx">
       <DependentUpon>FrmABMCompanias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEstadisticas.resx">
+      <DependentUpon>FrmEstadisticas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogueo.resx">
       <DependentUpon>FrmLogueo.cs</DependentUpon>
