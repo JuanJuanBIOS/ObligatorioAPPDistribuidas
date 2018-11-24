@@ -63,6 +63,7 @@
             // TBContraseña
             // 
             this.TBContraseña.Location = new System.Drawing.Point(102, 31);
+            this.TBContraseña.MaxLength = 6;
             this.TBContraseña.Name = "TBContraseña";
             this.TBContraseña.Size = new System.Drawing.Size(100, 20);
             this.TBContraseña.TabIndex = 2;

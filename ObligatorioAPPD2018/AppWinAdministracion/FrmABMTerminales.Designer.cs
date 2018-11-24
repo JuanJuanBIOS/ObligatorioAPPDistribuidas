@@ -168,6 +168,7 @@
             // 
             this.TBCiudad.Enabled = false;
             this.TBCiudad.Location = new System.Drawing.Point(111, 118);
+            this.TBCiudad.MaxLength = 50;
             this.TBCiudad.Name = "TBCiudad";
             this.TBCiudad.Size = new System.Drawing.Size(172, 20);
             this.TBCiudad.TabIndex = 4;
@@ -195,6 +196,7 @@
             // 
             this.TBFacilidad.Enabled = false;
             this.TBFacilidad.Location = new System.Drawing.Point(348, 85);
+            this.TBFacilidad.MaxLength = 50;
             this.TBFacilidad.Name = "TBFacilidad";
             this.TBFacilidad.Size = new System.Drawing.Size(173, 20);
             this.TBFacilidad.TabIndex = 5;

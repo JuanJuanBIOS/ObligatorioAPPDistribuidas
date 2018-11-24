@@ -34,7 +34,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("El código ingresado debe constar de 3 letras");
+                    throw new Exception("ERROR: El código ingresado debe constar de 3 letras");
                 }
             }
         }
@@ -51,7 +51,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("El nombre de la ciudad no puede contener más de 50 caracteres");
+                    throw new Exception("ERROR: El nombre de la ciudad no puede contener más de 50 caracteres");
                 }
             }
         }
@@ -68,7 +68,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("El país debe pertenecer al MERCOSUR");
+                    throw new Exception("ERROR: El país debe pertenecer al MERCOSUR");
                 }
             }
         }
@@ -84,7 +84,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("La lista de facilidades ingresada no es válida");
+                    throw new Exception("ERROR: La lista de facilidades ingresada no es válida");
                 }
             }
         }

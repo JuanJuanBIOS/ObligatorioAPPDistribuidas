@@ -24,7 +24,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("El nombre de la facilidad no puede contener más de 50 caracteres");
+                    throw new Exception("ERROR: El nombre de la facilidad no puede contener más de 50 caracteres");
                 }
             }
         }

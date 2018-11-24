@@ -22,7 +22,7 @@ namespace EntidadesCompartidas
                 if (value >= 0)
                     _paradas = value;
                 else
-                    throw new Exception("El número de paradas no es válido");
+                    throw new Exception("ERROR: El número de paradas no es válido");
             }
         }
 

@@ -28,9 +28,11 @@ namespace AppWinAdministracion
             try
             {
                 Empleados _unEmpleado = new AppWinAdministracion.WSTerminalRef.WSTerminal().Login(Convert.ToString(ControladorLogin.Usuario), ControladorLogin.Contraseña);
-
                 if (_unEmpleado == null)
+                {
                     LblError.Text = "Cédula o Contraseña Inválidos";
+                }
+
                 else
                 {
                     this.Hide();
@@ -39,13 +41,13 @@ namespace AppWinAdministracion
                     this.Close();
                 }
             }
+
             catch (System.Web.Services.Protocols.SoapException ex)
             {
-                if (ex.Detail.InnerText.Length > 40)
-                    LblError.Text = ex.Detail.InnerText.Substring(0, 40);
-                else
-                    LblError.Text = ex.Detail.InnerText;
+                int aux = ex.Message.IndexOf("ERROR: ");
+                LblError.Text = ex.Message.Substring(aux, 80);
             }
+
             catch (Exception ex)
             {
                 if (ex.Message.Length > 40)

@@ -32,7 +32,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("La descripción de la documentación no puede contener más de 200 caracteres");
+                    throw new Exception("ERROR: La descripción de la documentación no puede contener más de 200 caracteres");
                 }
             }
         }

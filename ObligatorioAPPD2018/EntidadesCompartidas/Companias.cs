@@ -26,7 +26,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("El nombre de la compañía no puede contener más de 50 caracteres");
+                    throw new Exception("ERROR: El nombre de la compañía no puede contener más de 50 caracteres");
                 }
             }
         }
@@ -43,7 +43,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("La dirección no puede contener más de 100 caracteres");
+                    throw new Exception("ERROR: La dirección no puede contener más de 100 caracteres");
                 }
             }
         }
@@ -62,13 +62,13 @@ namespace EntidadesCompartidas
                     }
                     else
                     {
-                        throw new Exception("El número de teléfono ingresado no es válido");
+                        throw new Exception("ERROR: El número de teléfono ingresado no es válido");
                     }
                 }
 
                 catch
                 {
-                    throw new Exception("El número de teléfono ingresado no es válido");
+                    throw new Exception("ERROR: El número de teléfono ingresado no es válido");
                 }
             }
         }

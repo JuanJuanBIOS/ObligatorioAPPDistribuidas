@@ -46,13 +46,13 @@ namespace EntidadesCompartidas
 
                     else
                     {
-                        throw new Exception("El número de cédula ingresado no es correcto");
+                        throw new Exception("ERROR: El número de cédula ingresado no es correcto");
                     }
 
                 }
                 catch
                 {
-                    throw new Exception("El número de cédula ingresado no es correcto");
+                    throw new Exception("ERROR: El número de cédula ingresado no es correcto");
                 }
             }
         }
@@ -69,7 +69,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("La contraseña ingresada debe contener 6 caracteres");
+                    throw new Exception("ERROR: La contraseña ingresada debe contener 6 caracteres");
                 }
             }
         }
@@ -86,7 +86,7 @@ namespace EntidadesCompartidas
                 }
                 else
                 {
-                    throw new Exception("El nombre no puede contener más de 100 caracteres");
+                    throw new Exception("ERROR: El nombre no puede contener más de 100 caracteres");
                 }
             }
         }

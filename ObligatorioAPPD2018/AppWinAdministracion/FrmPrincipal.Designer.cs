@@ -68,7 +68,7 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 313);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 309);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(237, 22);
             this.statusStrip1.TabIndex = 3;
@@ -98,7 +98,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(237, 335);
+            this.ClientSize = new System.Drawing.Size(237, 331);
             this.Controls.Add(this.BtnABMEmpleados);
             this.Controls.Add(this.BtnABMInternacionales);
             this.Controls.Add(this.statusStrip1);
