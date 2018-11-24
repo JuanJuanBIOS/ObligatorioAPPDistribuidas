@@ -56,5 +56,11 @@ namespace AppWinAdministracion
             Form _unForm = new FrmABMEmpleados(_EmpLogueado);
             _unForm.ShowDialog();
         }
+
+        private void BtnEstadisiticas_Click(object sender, EventArgs e)
+        {
+            Form _unForm = new FrmEstadisticas();
+            _unForm.ShowDialog();
+        }
     }
 }

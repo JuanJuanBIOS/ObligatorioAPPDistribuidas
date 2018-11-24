@@ -129,16 +129,6 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="Companias" nillable="true" type="tns:Companias" />
         </s:sequence>
       </s:complexType>
-      <s:element name="Listar_Todos_Companias">
-        <s:complexType />
-      </s:element>
-      <s:element name="Listar_Todos_CompaniasResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Listar_Todos_CompaniasResult" type="tns:ArrayOfCompanias" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="Buscar_Terminal">
         <s:complexType>
           <s:sequence>
@@ -198,16 +188,6 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="Terminales" nillable="true" type="tns:Terminales" />
         </s:sequence>
       </s:complexType>
-      <s:element name="Listar_Todos_Terminales">
-        <s:complexType />
-      </s:element>
-      <s:element name="Listar_Todos_TerminalesResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="Listar_Todos_TerminalesResult" type="tns:ArrayOfTerminales" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
       <s:element name="Buscar_Viaje">
         <s:complexType>
           <s:sequence>
@@ -267,6 +247,16 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="Viajes" nillable="true" type="tns:Viajes" />
         </s:sequence>
       </s:complexType>
+      <s:element name="Listar_Todos_Viajes">
+        <s:complexType />
+      </s:element>
+      <s:element name="Listar_Todos_ViajesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Listar_Todos_ViajesResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="Login">
         <s:complexType>
           <s:sequence>
@@ -293,20 +283,6 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="Buscar_EmpleadoResult" type="tns:Empleados" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="BuscarTodos_Empleado">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="pCedula" type="s:string" />
-          </s:sequence>
-        </s:complexType>
-      </s:element>
-      <s:element name="BuscarTodos_EmpleadoResponse">
-        <s:complexType>
-          <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="BuscarTodos_EmpleadoResult" type="tns:Empleados" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -378,12 +354,6 @@
   <wsdl:message name="Listar_CompaniasSoapOut">
     <wsdl:part name="parameters" element="tns:Listar_CompaniasResponse" />
   </wsdl:message>
-  <wsdl:message name="Listar_Todos_CompaniasSoapIn">
-    <wsdl:part name="parameters" element="tns:Listar_Todos_Companias" />
-  </wsdl:message>
-  <wsdl:message name="Listar_Todos_CompaniasSoapOut">
-    <wsdl:part name="parameters" element="tns:Listar_Todos_CompaniasResponse" />
-  </wsdl:message>
   <wsdl:message name="Buscar_TerminalSoapIn">
     <wsdl:part name="parameters" element="tns:Buscar_Terminal" />
   </wsdl:message>
@@ -413,12 +383,6 @@
   </wsdl:message>
   <wsdl:message name="Listar_TerminalesSoapOut">
     <wsdl:part name="parameters" element="tns:Listar_TerminalesResponse" />
-  </wsdl:message>
-  <wsdl:message name="Listar_Todos_TerminalesSoapIn">
-    <wsdl:part name="parameters" element="tns:Listar_Todos_Terminales" />
-  </wsdl:message>
-  <wsdl:message name="Listar_Todos_TerminalesSoapOut">
-    <wsdl:part name="parameters" element="tns:Listar_Todos_TerminalesResponse" />
   </wsdl:message>
   <wsdl:message name="Buscar_ViajeSoapIn">
     <wsdl:part name="parameters" element="tns:Buscar_Viaje" />
@@ -450,6 +414,12 @@
   <wsdl:message name="Listar_ViajesSoapOut">
     <wsdl:part name="parameters" element="tns:Listar_ViajesResponse" />
   </wsdl:message>
+  <wsdl:message name="Listar_Todos_ViajesSoapIn">
+    <wsdl:part name="parameters" element="tns:Listar_Todos_Viajes" />
+  </wsdl:message>
+  <wsdl:message name="Listar_Todos_ViajesSoapOut">
+    <wsdl:part name="parameters" element="tns:Listar_Todos_ViajesResponse" />
+  </wsdl:message>
   <wsdl:message name="LoginSoapIn">
     <wsdl:part name="parameters" element="tns:Login" />
   </wsdl:message>
@@ -461,12 +431,6 @@
   </wsdl:message>
   <wsdl:message name="Buscar_EmpleadoSoapOut">
     <wsdl:part name="parameters" element="tns:Buscar_EmpleadoResponse" />
-  </wsdl:message>
-  <wsdl:message name="BuscarTodos_EmpleadoSoapIn">
-    <wsdl:part name="parameters" element="tns:BuscarTodos_Empleado" />
-  </wsdl:message>
-  <wsdl:message name="BuscarTodos_EmpleadoSoapOut">
-    <wsdl:part name="parameters" element="tns:BuscarTodos_EmpleadoResponse" />
   </wsdl:message>
   <wsdl:message name="Alta_EmpleadoSoapIn">
     <wsdl:part name="parameters" element="tns:Alta_Empleado" />
@@ -511,10 +475,6 @@
       <wsdl:input message="tns:Listar_CompaniasSoapIn" />
       <wsdl:output message="tns:Listar_CompaniasSoapOut" />
     </wsdl:operation>
-    <wsdl:operation name="Listar_Todos_Companias">
-      <wsdl:input message="tns:Listar_Todos_CompaniasSoapIn" />
-      <wsdl:output message="tns:Listar_Todos_CompaniasSoapOut" />
-    </wsdl:operation>
     <wsdl:operation name="Buscar_Terminal">
       <wsdl:input message="tns:Buscar_TerminalSoapIn" />
       <wsdl:output message="tns:Buscar_TerminalSoapOut" />
@@ -534,10 +494,6 @@
     <wsdl:operation name="Listar_Terminales">
       <wsdl:input message="tns:Listar_TerminalesSoapIn" />
       <wsdl:output message="tns:Listar_TerminalesSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="Listar_Todos_Terminales">
-      <wsdl:input message="tns:Listar_Todos_TerminalesSoapIn" />
-      <wsdl:output message="tns:Listar_Todos_TerminalesSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Buscar_Viaje">
       <wsdl:input message="tns:Buscar_ViajeSoapIn" />
@@ -559,6 +515,10 @@
       <wsdl:input message="tns:Listar_ViajesSoapIn" />
       <wsdl:output message="tns:Listar_ViajesSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="Listar_Todos_Viajes">
+      <wsdl:input message="tns:Listar_Todos_ViajesSoapIn" />
+      <wsdl:output message="tns:Listar_Todos_ViajesSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <wsdl:input message="tns:LoginSoapIn" />
       <wsdl:output message="tns:LoginSoapOut" />
@@ -566,10 +526,6 @@
     <wsdl:operation name="Buscar_Empleado">
       <wsdl:input message="tns:Buscar_EmpleadoSoapIn" />
       <wsdl:output message="tns:Buscar_EmpleadoSoapOut" />
-    </wsdl:operation>
-    <wsdl:operation name="BuscarTodos_Empleado">
-      <wsdl:input message="tns:BuscarTodos_EmpleadoSoapIn" />
-      <wsdl:output message="tns:BuscarTodos_EmpleadoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="Alta_Empleado">
       <wsdl:input message="tns:Alta_EmpleadoSoapIn" />
@@ -640,15 +596,6 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Listar_Todos_Companias">
-      <soap:operation soapAction="http://tempuri.org/Listar_Todos_Companias" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Buscar_Terminal">
       <soap:operation soapAction="http://tempuri.org/Buscar_Terminal" style="document" />
       <wsdl:input>
@@ -687,15 +634,6 @@
     </wsdl:operation>
     <wsdl:operation name="Listar_Terminales">
       <soap:operation soapAction="http://tempuri.org/Listar_Terminales" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Listar_Todos_Terminales">
-      <soap:operation soapAction="http://tempuri.org/Listar_Todos_Terminales" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -748,6 +686,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Listar_Todos_Viajes">
+      <soap:operation soapAction="http://tempuri.org/Listar_Todos_Viajes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <soap:operation soapAction="http://tempuri.org/Login" style="document" />
       <wsdl:input>
@@ -759,15 +706,6 @@
     </wsdl:operation>
     <wsdl:operation name="Buscar_Empleado">
       <soap:operation soapAction="http://tempuri.org/Buscar_Empleado" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarTodos_Empleado">
-      <soap:operation soapAction="http://tempuri.org/BuscarTodos_Empleado" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -859,15 +797,6 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="Listar_Todos_Companias">
-      <soap12:operation soapAction="http://tempuri.org/Listar_Todos_Companias" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="Buscar_Terminal">
       <soap12:operation soapAction="http://tempuri.org/Buscar_Terminal" style="document" />
       <wsdl:input>
@@ -906,15 +835,6 @@
     </wsdl:operation>
     <wsdl:operation name="Listar_Terminales">
       <soap12:operation soapAction="http://tempuri.org/Listar_Terminales" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="Listar_Todos_Terminales">
-      <soap12:operation soapAction="http://tempuri.org/Listar_Todos_Terminales" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -967,6 +887,15 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="Listar_Todos_Viajes">
+      <soap12:operation soapAction="http://tempuri.org/Listar_Todos_Viajes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="Login">
       <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
       <wsdl:input>
@@ -978,15 +907,6 @@
     </wsdl:operation>
     <wsdl:operation name="Buscar_Empleado">
       <soap12:operation soapAction="http://tempuri.org/Buscar_Empleado" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="BuscarTodos_Empleado">
-      <soap12:operation soapAction="http://tempuri.org/BuscarTodos_Empleado" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

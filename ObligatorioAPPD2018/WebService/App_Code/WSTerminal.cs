@@ -294,51 +294,44 @@ public class WSTerminal : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public List<Viajes> Listar_Todos_Viajes()
+    public string Listar_Todos_Viajes()
     {
         List<Viajes> _lista = null;
-        try
+
+        _lista = FabricaLogica.getLogicaViaje().Listar_Todos_Viajes();
+        XmlDocument _doc = new XmlDocument();
+        _doc.LoadXml("<?xml version='1.0' encoding ='utf-8' ?> <Viaje> </Viaje>");
+        XmlNode nodoViaje = _doc.CreateNode(XmlNodeType.Element, "Viaje", "");
+
+        foreach (Viajes _viaje in _lista)
         {
-            _lista = FabricaLogica.getLogicaViaje().Listar_Todos_Viajes();
-            XmlDocument _doc = new XmlDocument();
-            _doc.LoadXml("<?xml version='1.0' encoding ='utf-8' ?> <Viaje> </Viaje>");
-            XmlNode nodoViaje = _doc.CreateNode(XmlNodeType.Element, "Viaje", "");
 
-            foreach (Viajes _viaje in _lista)
-            {
-                
 
-                XmlNode nodoNumero = _doc.CreateNode(XmlNodeType.Element, "Número", "");
-                nodoNumero.InnerXml = _viaje.Numero.ToString();
-                nodoViaje.AppendChild(nodoNumero);
+            XmlNode nodoNumero = _doc.CreateNode(XmlNodeType.Element, "Número", "");
+            nodoNumero.InnerXml = _viaje.Numero.ToString();
+            nodoViaje.AppendChild(nodoNumero);
 
-                XmlNode nodoCiudadDestino = _doc.CreateNode(XmlNodeType.Element, "CiudadDestino", "");
-                nodoCiudadDestino.InnerXml = _viaje.Terminal.Ciudad;
-                nodoViaje.AppendChild(nodoCiudadDestino);
+            XmlNode nodoCiudadDestino = _doc.CreateNode(XmlNodeType.Element, "CiudadDestino", "");
+            nodoCiudadDestino.InnerXml = _viaje.Terminal.Ciudad;
+            nodoViaje.AppendChild(nodoCiudadDestino);
 
-                XmlNode nodoPaisDestino = _doc.CreateNode(XmlNodeType.Element, "PaisDestino", "");
-                nodoPaisDestino.InnerXml = _viaje.Terminal.Pais;
-                nodoViaje.AppendChild(nodoPaisDestino);
+            XmlNode nodoPaisDestino = _doc.CreateNode(XmlNodeType.Element, "PaisDestino", "");
+            nodoPaisDestino.InnerXml = _viaje.Terminal.Pais;
+            nodoViaje.AppendChild(nodoPaisDestino);
 
-                XmlNode nodoCompania = _doc.CreateNode(XmlNodeType.Element, "Compania", "");
-                nodoCompania.InnerXml = _viaje.Compania.Nombre;
-                nodoViaje.AppendChild(nodoCompania);
+            XmlNode nodoCompania = _doc.CreateNode(XmlNodeType.Element, "Compania", "");
+            nodoCompania.InnerXml = _viaje.Compania.Nombre;
+            nodoViaje.AppendChild(nodoCompania);
 
-                XmlNode nodoFechaPartida = _doc.CreateNode(XmlNodeType.Element, "FechaPartida", "");
-                nodoFechaPartida.InnerXml = _viaje.Fecha_partida.ToString();
-                nodoViaje.AppendChild(nodoFechaPartida);
+            XmlNode nodoFechaPartida = _doc.CreateNode(XmlNodeType.Element, "FechaPartida", "");
+            nodoFechaPartida.InnerXml = _viaje.Fecha_partida.ToString();
+            nodoViaje.AppendChild(nodoFechaPartida);
 
-                _doc.DocumentElement.AppendChild(nodoViaje);
-            }
-            //return (_doc.OuterXml);
+            _doc.DocumentElement.AppendChild(nodoViaje);
+
         }
 
-        catch (Exception ex)
-        {
-            this.GenerarSoapException(ex);
-        }
-
-        return _lista;
+        return (_doc.OuterXml);
     }
 
     #endregion

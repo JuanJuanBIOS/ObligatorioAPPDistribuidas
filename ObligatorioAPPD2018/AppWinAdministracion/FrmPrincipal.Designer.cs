@@ -34,6 +34,7 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.BtnABMInternacionales = new System.Windows.Forms.Button();
             this.BtnABMEmpleados = new System.Windows.Forms.Button();
+            this.BtnEstadisiticas = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BtnABMNacionales
@@ -68,7 +69,7 @@
             // 
             // statusStrip1
             // 
-            this.statusStrip1.Location = new System.Drawing.Point(0, 309);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 375);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(237, 22);
             this.statusStrip1.TabIndex = 3;
@@ -94,11 +95,22 @@
             this.BtnABMEmpleados.UseVisualStyleBackColor = true;
             this.BtnABMEmpleados.Click += new System.EventHandler(this.BtnABMEmpleados_Click);
             // 
+            // BtnEstadisiticas
+            // 
+            this.BtnEstadisiticas.Location = new System.Drawing.Point(25, 306);
+            this.BtnEstadisiticas.Name = "BtnEstadisiticas";
+            this.BtnEstadisiticas.Size = new System.Drawing.Size(176, 23);
+            this.BtnEstadisiticas.TabIndex = 6;
+            this.BtnEstadisiticas.Text = "Estadísticas";
+            this.BtnEstadisiticas.UseVisualStyleBackColor = true;
+            this.BtnEstadisiticas.Click += new System.EventHandler(this.BtnEstadisiticas_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(237, 331);
+            this.ClientSize = new System.Drawing.Size(237, 397);
+            this.Controls.Add(this.BtnEstadisiticas);
             this.Controls.Add(this.BtnABMEmpleados);
             this.Controls.Add(this.BtnABMInternacionales);
             this.Controls.Add(this.statusStrip1);
@@ -120,6 +132,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.Button BtnABMInternacionales;
         private System.Windows.Forms.Button BtnABMEmpleados;
+        private System.Windows.Forms.Button BtnEstadisiticas;
 
     }
 }
