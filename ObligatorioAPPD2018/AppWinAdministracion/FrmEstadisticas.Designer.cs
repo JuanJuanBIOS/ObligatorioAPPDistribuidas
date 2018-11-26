@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.DGVViajes = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.DTPDesde = new System.Windows.Forms.DateTimePicker();
+            this.DTPHasta = new System.Windows.Forms.DateTimePicker();
             this.LBDesde = new System.Windows.Forms.Label();
             this.LBHasta = new System.Windows.Forms.Label();
             this.LBPais = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbPais = new System.Windows.Forms.ComboBox();
             this.LBViajes = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DGVViajesCompania = new System.Windows.Forms.DataGridView();
             this.BTNLimpiar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnFiltrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DGVViajes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVViajesCompania)).BeginInit();
             this.SuspendLayout();
@@ -52,19 +52,19 @@
             this.DGVViajes.Size = new System.Drawing.Size(902, 179);
             this.DGVViajes.TabIndex = 0;
             // 
-            // dateTimePicker1
+            // DTPDesde
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(163, 13);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 1;
+            this.DTPDesde.Location = new System.Drawing.Point(163, 13);
+            this.DTPDesde.Name = "DTPDesde";
+            this.DTPDesde.Size = new System.Drawing.Size(200, 20);
+            this.DTPDesde.TabIndex = 1;
             // 
-            // dateTimePicker2
+            // DTPHasta
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(163, 40);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker2.TabIndex = 2;
+            this.DTPHasta.Location = new System.Drawing.Point(163, 40);
+            this.DTPHasta.Name = "DTPHasta";
+            this.DTPHasta.Size = new System.Drawing.Size(200, 20);
+            this.DTPHasta.TabIndex = 2;
             // 
             // LBDesde
             // 
@@ -93,13 +93,13 @@
             this.LBPais.TabIndex = 5;
             this.LBPais.Text = "País de destino:";
             // 
-            // comboBox1
+            // cbPais
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(163, 69);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(200, 21);
-            this.comboBox1.TabIndex = 6;
+            this.cbPais.FormattingEnabled = true;
+            this.cbPais.Location = new System.Drawing.Point(163, 69);
+            this.cbPais.Name = "cbPais";
+            this.cbPais.Size = new System.Drawing.Size(200, 21);
+            this.cbPais.TabIndex = 6;
             // 
             // LBViajes
             // 
@@ -135,36 +135,38 @@
             this.BTNLimpiar.TabIndex = 10;
             this.BTNLimpiar.Text = "Limpiar";
             this.BTNLimpiar.UseVisualStyleBackColor = true;
+            this.BTNLimpiar.Click += new System.EventHandler(this.BTNLimpiar_Click);
             // 
-            // button1
+            // BtnFiltrar
             // 
-            this.button1.Location = new System.Drawing.Point(547, 66);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Test";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnFiltrar.Location = new System.Drawing.Point(498, 69);
+            this.BtnFiltrar.Name = "BtnFiltrar";
+            this.BtnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.BtnFiltrar.TabIndex = 11;
+            this.BtnFiltrar.Text = "Filtrar";
+            this.BtnFiltrar.UseVisualStyleBackColor = true;
+            this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
             // FrmEstadisticas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(956, 548);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnFiltrar);
             this.Controls.Add(this.BTNLimpiar);
             this.Controls.Add(this.DGVViajesCompania);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LBViajes);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbPais);
             this.Controls.Add(this.LBPais);
             this.Controls.Add(this.LBHasta);
             this.Controls.Add(this.LBDesde);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.DTPHasta);
+            this.Controls.Add(this.DTPDesde);
             this.Controls.Add(this.DGVViajes);
             this.Name = "FrmEstadisticas";
             this.Text = "Estadísticas";
+            this.Load += new System.EventHandler(this.FrmEstadisticas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DGVViajes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVViajesCompania)).EndInit();
             this.ResumeLayout(false);
@@ -175,16 +177,16 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DGVViajes;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker DTPDesde;
+        private System.Windows.Forms.DateTimePicker DTPHasta;
         private System.Windows.Forms.Label LBDesde;
         private System.Windows.Forms.Label LBHasta;
         private System.Windows.Forms.Label LBPais;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbPais;
         private System.Windows.Forms.Label LBViajes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView DGVViajesCompania;
         private System.Windows.Forms.Button BTNLimpiar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnFiltrar;
     }
 }

@@ -7,6 +7,7 @@ namespace Persistencia
 {
     internal class Conexion
     {
-        public const String STR = @"Data Source=.\SQLEXPRESS;Initial Catalog=Terminal;Integrated Security=True";
+        //public const String STR = @"Data Source=.\SQLEXPRESS;Initial Catalog=Terminal;Integrated Security=True";
+        public const String STR = @"Data Source=.;Initial Catalog=Terminal;Integrated Security=True";
     }
 }

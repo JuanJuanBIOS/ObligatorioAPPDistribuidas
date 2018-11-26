@@ -224,6 +224,9 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
     <WebReferenceUrl Include="http://localhost/WSTerminal/WSTerminal.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\WSTerminalRef\</RelPath>
@@ -235,9 +238,6 @@
       <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
       <CachedSettingsPropName>AppWinAdministracion_WSTerminalRef_WSTerminal</CachedSettingsPropName>
     </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
